@@ -3,5 +3,9 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
 
-    <application />
+    <application>
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="true" />
+    </application>
 </manifest>
