@@ -32,9 +32,11 @@ import com.google.api.gax.rpc.StreamingCallSettings;
 import com.google.api.gax.rpc.UnaryCallSettings;
 import com.google.api.gax.rpc.UnaryCallable;
 import com.google.longrunning.stub.OperationsStub;
+
 import javax.annotation.Generated;
 
 // AUTO-GENERATED DOCUMENTATION AND CLASS
+
 /**
  * gRPC callable factory implementation for Photos Library API.
  *
@@ -43,73 +45,73 @@ import javax.annotation.Generated;
 @Generated("by gapic-generator")
 @BetaApi("The surface for use by generated code is not stable yet and may change in the future.")
 public class GrpcPhotosLibraryCallableFactory implements GrpcStubCallableFactory {
-  @Override
-  public <RequestT, ResponseT> UnaryCallable<RequestT, ResponseT> createUnaryCallable(
-      GrpcCallSettings<RequestT, ResponseT> grpcCallSettings,
-      UnaryCallSettings<RequestT, ResponseT> callSettings,
-      ClientContext clientContext) {
-    return GrpcCallableFactory.createUnaryCallable(grpcCallSettings, callSettings, clientContext);
-  }
+    @Override
+    public <RequestT, ResponseT> UnaryCallable<RequestT, ResponseT> createUnaryCallable(
+            GrpcCallSettings<RequestT, ResponseT> grpcCallSettings,
+            UnaryCallSettings<RequestT, ResponseT> callSettings,
+            ClientContext clientContext) {
+        return GrpcCallableFactory.createUnaryCallable(grpcCallSettings, callSettings, clientContext);
+    }
 
-  @Override
-  public <RequestT, ResponseT, PagedListResponseT>
-      UnaryCallable<RequestT, PagedListResponseT> createPagedCallable(
-          GrpcCallSettings<RequestT, ResponseT> grpcCallSettings,
-          PagedCallSettings<RequestT, ResponseT, PagedListResponseT> pagedCallSettings,
-          ClientContext clientContext) {
-    return GrpcCallableFactory.createPagedCallable(
-        grpcCallSettings, pagedCallSettings, clientContext);
-  }
+    @Override
+    public <RequestT, ResponseT, PagedListResponseT>
+    UnaryCallable<RequestT, PagedListResponseT> createPagedCallable(
+            GrpcCallSettings<RequestT, ResponseT> grpcCallSettings,
+            PagedCallSettings<RequestT, ResponseT, PagedListResponseT> pagedCallSettings,
+            ClientContext clientContext) {
+        return GrpcCallableFactory.createPagedCallable(
+                grpcCallSettings, pagedCallSettings, clientContext);
+    }
 
-  @Override
-  public <RequestT, ResponseT> UnaryCallable<RequestT, ResponseT> createBatchingCallable(
-      GrpcCallSettings<RequestT, ResponseT> grpcCallSettings,
-      BatchingCallSettings<RequestT, ResponseT> batchingCallSettings,
-      ClientContext clientContext) {
-    return GrpcCallableFactory.createBatchingCallable(
-        grpcCallSettings, batchingCallSettings, clientContext);
-  }
+    @Override
+    public <RequestT, ResponseT> UnaryCallable<RequestT, ResponseT> createBatchingCallable(
+            GrpcCallSettings<RequestT, ResponseT> grpcCallSettings,
+            BatchingCallSettings<RequestT, ResponseT> batchingCallSettings,
+            ClientContext clientContext) {
+        return GrpcCallableFactory.createBatchingCallable(
+                grpcCallSettings, batchingCallSettings, clientContext);
+    }
 
-  @BetaApi(
-      "The surface for long-running operations is not stable yet and may change in the future.")
-  @Override
-  public <RequestT, ResponseT, MetadataT>
-      OperationCallable<RequestT, ResponseT, MetadataT> createOperationCallable(
-          GrpcCallSettings<RequestT, com.google.longrunning.Operation> grpcCallSettings,
-          OperationCallSettings<RequestT, ResponseT, MetadataT> operationCallSettings,
-          ClientContext clientContext,
-          OperationsStub operationsStub) {
-    return GrpcCallableFactory.createOperationCallable(
-        grpcCallSettings, operationCallSettings, clientContext, operationsStub);
-  }
+    @BetaApi(
+            "The surface for long-running operations is not stable yet and may change in the future.")
+    @Override
+    public <RequestT, ResponseT, MetadataT>
+    OperationCallable<RequestT, ResponseT, MetadataT> createOperationCallable(
+            GrpcCallSettings<RequestT, com.google.longrunning.Operation> grpcCallSettings,
+            OperationCallSettings<RequestT, ResponseT, MetadataT> operationCallSettings,
+            ClientContext clientContext,
+            OperationsStub operationsStub) {
+        return GrpcCallableFactory.createOperationCallable(
+                grpcCallSettings, operationCallSettings, clientContext, operationsStub);
+    }
 
-  @Override
-  public <RequestT, ResponseT>
-      BidiStreamingCallable<RequestT, ResponseT> createBidiStreamingCallable(
-          GrpcCallSettings<RequestT, ResponseT> grpcCallSettings,
-          StreamingCallSettings<RequestT, ResponseT> streamingCallSettings,
-          ClientContext clientContext) {
-    return GrpcCallableFactory.createBidiStreamingCallable(
-        grpcCallSettings, streamingCallSettings, clientContext);
-  }
+    @Override
+    public <RequestT, ResponseT>
+    BidiStreamingCallable<RequestT, ResponseT> createBidiStreamingCallable(
+            GrpcCallSettings<RequestT, ResponseT> grpcCallSettings,
+            StreamingCallSettings<RequestT, ResponseT> streamingCallSettings,
+            ClientContext clientContext) {
+        return GrpcCallableFactory.createBidiStreamingCallable(
+                grpcCallSettings, streamingCallSettings, clientContext);
+    }
 
-  @Override
-  public <RequestT, ResponseT>
-      ServerStreamingCallable<RequestT, ResponseT> createServerStreamingCallable(
-          GrpcCallSettings<RequestT, ResponseT> grpcCallSettings,
-          ServerStreamingCallSettings<RequestT, ResponseT> streamingCallSettings,
-          ClientContext clientContext) {
-    return GrpcCallableFactory.createServerStreamingCallable(
-        grpcCallSettings, streamingCallSettings, clientContext);
-  }
+    @Override
+    public <RequestT, ResponseT>
+    ServerStreamingCallable<RequestT, ResponseT> createServerStreamingCallable(
+            GrpcCallSettings<RequestT, ResponseT> grpcCallSettings,
+            ServerStreamingCallSettings<RequestT, ResponseT> streamingCallSettings,
+            ClientContext clientContext) {
+        return GrpcCallableFactory.createServerStreamingCallable(
+                grpcCallSettings, streamingCallSettings, clientContext);
+    }
 
-  @Override
-  public <RequestT, ResponseT>
-      ClientStreamingCallable<RequestT, ResponseT> createClientStreamingCallable(
-          GrpcCallSettings<RequestT, ResponseT> grpcCallSettings,
-          StreamingCallSettings<RequestT, ResponseT> streamingCallSettings,
-          ClientContext clientContext) {
-    return GrpcCallableFactory.createClientStreamingCallable(
-        grpcCallSettings, streamingCallSettings, clientContext);
-  }
+    @Override
+    public <RequestT, ResponseT>
+    ClientStreamingCallable<RequestT, ResponseT> createClientStreamingCallable(
+            GrpcCallSettings<RequestT, ResponseT> grpcCallSettings,
+            StreamingCallSettings<RequestT, ResponseT> streamingCallSettings,
+            ClientContext clientContext) {
+        return GrpcCallableFactory.createClientStreamingCallable(
+                grpcCallSettings, streamingCallSettings, clientContext);
+    }
 }

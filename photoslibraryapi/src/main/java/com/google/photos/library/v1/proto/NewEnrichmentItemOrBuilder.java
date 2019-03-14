@@ -4,102 +4,90 @@
 package com.google.photos.library.v1.proto;
 
 public interface NewEnrichmentItemOrBuilder
-    extends
-    // @@protoc_insertion_point(interface_extends:google.photos.library.v1.NewEnrichmentItem)
-    com.google.protobuf.MessageOrBuilder {
+        extends
+        // @@protoc_insertion_point(interface_extends:google.photos.library.v1.NewEnrichmentItem)
+        com.google.protobuf.MessageOrBuilder {
 
-  /**
-   *
-   *
-   * <pre>
-   * Text to be added to the album.
-   * </pre>
-   *
-   * <code>.google.photos.library.v1.TextEnrichment text_enrichment = 1;</code>
-   */
-  boolean hasTextEnrichment();
-  /**
-   *
-   *
-   * <pre>
-   * Text to be added to the album.
-   * </pre>
-   *
-   * <code>.google.photos.library.v1.TextEnrichment text_enrichment = 1;</code>
-   */
-  com.google.photos.library.v1.proto.TextEnrichment getTextEnrichment();
-  /**
-   *
-   *
-   * <pre>
-   * Text to be added to the album.
-   * </pre>
-   *
-   * <code>.google.photos.library.v1.TextEnrichment text_enrichment = 1;</code>
-   */
-  com.google.photos.library.v1.proto.TextEnrichmentOrBuilder getTextEnrichmentOrBuilder();
+    /**
+     * <pre>
+     * Text to be added to the album.
+     * </pre>
+     *
+     * <code>.google.photos.library.v1.TextEnrichment text_enrichment = 1;</code>
+     */
+    boolean hasTextEnrichment();
 
-  /**
-   *
-   *
-   * <pre>
-   * Location to be added to the album.
-   * </pre>
-   *
-   * <code>.google.photos.library.v1.LocationEnrichment location_enrichment = 2;</code>
-   */
-  boolean hasLocationEnrichment();
-  /**
-   *
-   *
-   * <pre>
-   * Location to be added to the album.
-   * </pre>
-   *
-   * <code>.google.photos.library.v1.LocationEnrichment location_enrichment = 2;</code>
-   */
-  com.google.photos.library.v1.proto.LocationEnrichment getLocationEnrichment();
-  /**
-   *
-   *
-   * <pre>
-   * Location to be added to the album.
-   * </pre>
-   *
-   * <code>.google.photos.library.v1.LocationEnrichment location_enrichment = 2;</code>
-   */
-  com.google.photos.library.v1.proto.LocationEnrichmentOrBuilder getLocationEnrichmentOrBuilder();
+    /**
+     * <pre>
+     * Text to be added to the album.
+     * </pre>
+     *
+     * <code>.google.photos.library.v1.TextEnrichment text_enrichment = 1;</code>
+     */
+    com.google.photos.library.v1.proto.TextEnrichment getTextEnrichment();
 
-  /**
-   *
-   *
-   * <pre>
-   * Map to be added to the album.
-   * </pre>
-   *
-   * <code>.google.photos.library.v1.MapEnrichment map_enrichment = 3;</code>
-   */
-  boolean hasMapEnrichment();
-  /**
-   *
-   *
-   * <pre>
-   * Map to be added to the album.
-   * </pre>
-   *
-   * <code>.google.photos.library.v1.MapEnrichment map_enrichment = 3;</code>
-   */
-  com.google.photos.library.v1.proto.MapEnrichment getMapEnrichment();
-  /**
-   *
-   *
-   * <pre>
-   * Map to be added to the album.
-   * </pre>
-   *
-   * <code>.google.photos.library.v1.MapEnrichment map_enrichment = 3;</code>
-   */
-  com.google.photos.library.v1.proto.MapEnrichmentOrBuilder getMapEnrichmentOrBuilder();
+    /**
+     * <pre>
+     * Text to be added to the album.
+     * </pre>
+     *
+     * <code>.google.photos.library.v1.TextEnrichment text_enrichment = 1;</code>
+     */
+    com.google.photos.library.v1.proto.TextEnrichmentOrBuilder getTextEnrichmentOrBuilder();
 
-  public com.google.photos.library.v1.proto.NewEnrichmentItem.EnrichmentCase getEnrichmentCase();
+    /**
+     * <pre>
+     * Location to be added to the album.
+     * </pre>
+     *
+     * <code>.google.photos.library.v1.LocationEnrichment location_enrichment = 2;</code>
+     */
+    boolean hasLocationEnrichment();
+
+    /**
+     * <pre>
+     * Location to be added to the album.
+     * </pre>
+     *
+     * <code>.google.photos.library.v1.LocationEnrichment location_enrichment = 2;</code>
+     */
+    com.google.photos.library.v1.proto.LocationEnrichment getLocationEnrichment();
+
+    /**
+     * <pre>
+     * Location to be added to the album.
+     * </pre>
+     *
+     * <code>.google.photos.library.v1.LocationEnrichment location_enrichment = 2;</code>
+     */
+    com.google.photos.library.v1.proto.LocationEnrichmentOrBuilder getLocationEnrichmentOrBuilder();
+
+    /**
+     * <pre>
+     * Map to be added to the album.
+     * </pre>
+     *
+     * <code>.google.photos.library.v1.MapEnrichment map_enrichment = 3;</code>
+     */
+    boolean hasMapEnrichment();
+
+    /**
+     * <pre>
+     * Map to be added to the album.
+     * </pre>
+     *
+     * <code>.google.photos.library.v1.MapEnrichment map_enrichment = 3;</code>
+     */
+    com.google.photos.library.v1.proto.MapEnrichment getMapEnrichment();
+
+    /**
+     * <pre>
+     * Map to be added to the album.
+     * </pre>
+     *
+     * <code>.google.photos.library.v1.MapEnrichment map_enrichment = 3;</code>
+     */
+    com.google.photos.library.v1.proto.MapEnrichmentOrBuilder getMapEnrichmentOrBuilder();
+
+    public com.google.photos.library.v1.proto.NewEnrichmentItem.EnrichmentCase getEnrichmentCase();
 }

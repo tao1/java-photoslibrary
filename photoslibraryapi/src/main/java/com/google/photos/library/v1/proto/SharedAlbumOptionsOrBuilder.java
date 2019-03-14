@@ -4,31 +4,27 @@
 package com.google.photos.library.v1.proto;
 
 public interface SharedAlbumOptionsOrBuilder
-    extends
-    // @@protoc_insertion_point(interface_extends:google.photos.library.v1.SharedAlbumOptions)
-    com.google.protobuf.MessageOrBuilder {
+        extends
+        // @@protoc_insertion_point(interface_extends:google.photos.library.v1.SharedAlbumOptions)
+        com.google.protobuf.MessageOrBuilder {
 
-  /**
-   *
-   *
-   * <pre>
-   * True if the shared album allows collaborators (users who have joined
-   * the album) to add media items to it. Defaults to false.
-   * </pre>
-   *
-   * <code>bool is_collaborative = 1;</code>
-   */
-  boolean getIsCollaborative();
+    /**
+     * <pre>
+     * True if the shared album allows collaborators (users who have joined
+     * the album) to add media items to it. Defaults to false.
+     * </pre>
+     *
+     * <code>bool is_collaborative = 1;</code>
+     */
+    boolean getIsCollaborative();
 
-  /**
-   *
-   *
-   * <pre>
-   * True if the shared album allows the owner and the collaborators (users
-   * who have joined the album) to add comments to the album. Defaults to false.
-   * </pre>
-   *
-   * <code>bool is_commentable = 2;</code>
-   */
-  boolean getIsCommentable();
+    /**
+     * <pre>
+     * True if the shared album allows the owner and the collaborators (users
+     * who have joined the album) to add comments to the album. Defaults to false.
+     * </pre>
+     *
+     * <code>bool is_commentable = 2;</code>
+     */
+    boolean getIsCommentable();
 }

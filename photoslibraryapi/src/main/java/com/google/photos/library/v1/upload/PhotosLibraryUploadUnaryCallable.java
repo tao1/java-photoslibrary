@@ -23,82 +23,83 @@ import com.google.api.gax.rpc.ClientContext;
 import com.google.api.gax.rpc.UnaryCallable;
 import com.google.common.util.concurrent.ListenableFutureTask;
 import com.google.photos.library.v1.PhotosLibrarySettings;
+
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Executor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
 final class PhotosLibraryUploadUnaryCallable
-    extends UnaryCallable<UploadMediaItemRequest, UploadMediaItemResponse> {
+        extends UnaryCallable<UploadMediaItemRequest, UploadMediaItemResponse> {
 
-  private final ClientContext clientContext;
-  private final PhotosLibrarySettings photosLibrarySettings;
+    private final ClientContext clientContext;
+    private final PhotosLibrarySettings photosLibrarySettings;
 
-  PhotosLibraryUploadUnaryCallable(
-      ClientContext clientContext, PhotosLibrarySettings photosLibrarySettings) {
-    this.clientContext = clientContext;
-    this.photosLibrarySettings = photosLibrarySettings;
-  }
-
-  @Override
-  public ApiFuture<UploadMediaItemResponse> futureCall(
-      UploadMediaItemRequest request, ApiCallContext unusedContext) {
-    PhotosLibraryUploadCallable uploadCallable =
-        new PhotosLibraryUploadCallable(request, clientContext, photosLibrarySettings);
-    // Catches exception thrown while uploading, transforms it into a response
-    // and adds a resumeUrl if exists.
-    return ApiFutures.catching(
-        PhotosLibraryUploadApiFuture.create(uploadCallable, clientContext),
-        Throwable.class,
-        new PhotosLibraryUploadExceptionMappingFn(uploadCallable.getAtomicResumeUrl()));
-  }
-
-  private static final class PhotosLibraryUploadApiFuture
-      implements ApiFuture<UploadMediaItemResponse> {
-
-    private final ListenableFutureTask<UploadMediaItemResponse> futureTask;
-
-    private PhotosLibraryUploadApiFuture(ListenableFutureTask<UploadMediaItemResponse> futureTask) {
-      this.futureTask = futureTask;
-    }
-
-    public static final PhotosLibraryUploadApiFuture create(
-        PhotosLibraryUploadCallable uploadCallable, ClientContext clientContext) {
-      PhotosLibraryUploadApiFuture future =
-          new PhotosLibraryUploadApiFuture(ListenableFutureTask.create(uploadCallable));
-      clientContext.getExecutor().execute(future.futureTask);
-      return future;
+    PhotosLibraryUploadUnaryCallable(
+            ClientContext clientContext, PhotosLibrarySettings photosLibrarySettings) {
+        this.clientContext = clientContext;
+        this.photosLibrarySettings = photosLibrarySettings;
     }
 
     @Override
-    public void addListener(Runnable listener, Executor executor) {
-      futureTask.addListener(listener, executor);
+    public ApiFuture<UploadMediaItemResponse> futureCall(
+            UploadMediaItemRequest request, ApiCallContext unusedContext) {
+        PhotosLibraryUploadCallable uploadCallable =
+                new PhotosLibraryUploadCallable(request, clientContext, photosLibrarySettings);
+        // Catches exception thrown while uploading, transforms it into a response
+        // and adds a resumeUrl if exists.
+        return ApiFutures.catching(
+                PhotosLibraryUploadApiFuture.create(uploadCallable, clientContext),
+                Throwable.class,
+                new PhotosLibraryUploadExceptionMappingFn(uploadCallable.getAtomicResumeUrl()));
     }
 
-    @Override
-    public boolean cancel(boolean b) {
-      return futureTask.cancel(b);
-    }
+    private static final class PhotosLibraryUploadApiFuture
+            implements ApiFuture<UploadMediaItemResponse> {
 
-    @Override
-    public boolean isCancelled() {
-      return futureTask.isCancelled();
-    }
+        private final ListenableFutureTask<UploadMediaItemResponse> futureTask;
 
-    @Override
-    public boolean isDone() {
-      return futureTask.isDone();
-    }
+        private PhotosLibraryUploadApiFuture(ListenableFutureTask<UploadMediaItemResponse> futureTask) {
+            this.futureTask = futureTask;
+        }
 
-    @Override
-    public UploadMediaItemResponse get() throws InterruptedException, ExecutionException {
-      return futureTask.get();
-    }
+        public static final PhotosLibraryUploadApiFuture create(
+                PhotosLibraryUploadCallable uploadCallable, ClientContext clientContext) {
+            PhotosLibraryUploadApiFuture future =
+                    new PhotosLibraryUploadApiFuture(ListenableFutureTask.create(uploadCallable));
+            clientContext.getExecutor().execute(future.futureTask);
+            return future;
+        }
 
-    @Override
-    public UploadMediaItemResponse get(long l, TimeUnit timeUnit)
-        throws InterruptedException, ExecutionException, TimeoutException {
-      return futureTask.get(l, timeUnit);
+        @Override
+        public void addListener(Runnable listener, Executor executor) {
+            futureTask.addListener(listener, executor);
+        }
+
+        @Override
+        public boolean cancel(boolean b) {
+            return futureTask.cancel(b);
+        }
+
+        @Override
+        public boolean isCancelled() {
+            return futureTask.isCancelled();
+        }
+
+        @Override
+        public boolean isDone() {
+            return futureTask.isDone();
+        }
+
+        @Override
+        public UploadMediaItemResponse get() throws InterruptedException, ExecutionException {
+            return futureTask.get();
+        }
+
+        @Override
+        public UploadMediaItemResponse get(long l, TimeUnit timeUnit)
+                throws InterruptedException, ExecutionException, TimeoutException {
+            return futureTask.get(l, timeUnit);
+        }
     }
-  }
 }

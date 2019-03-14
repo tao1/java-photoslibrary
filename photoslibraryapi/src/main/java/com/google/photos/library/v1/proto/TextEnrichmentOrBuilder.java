@@ -4,28 +4,25 @@
 package com.google.photos.library.v1.proto;
 
 public interface TextEnrichmentOrBuilder
-    extends
-    // @@protoc_insertion_point(interface_extends:google.photos.library.v1.TextEnrichment)
-    com.google.protobuf.MessageOrBuilder {
+        extends
+        // @@protoc_insertion_point(interface_extends:google.photos.library.v1.TextEnrichment)
+        com.google.protobuf.MessageOrBuilder {
 
-  /**
-   *
-   *
-   * <pre>
-   * Text for this enrichment item.
-   * </pre>
-   *
-   * <code>string text = 1;</code>
-   */
-  java.lang.String getText();
-  /**
-   *
-   *
-   * <pre>
-   * Text for this enrichment item.
-   * </pre>
-   *
-   * <code>string text = 1;</code>
-   */
-  com.google.protobuf.ByteString getTextBytes();
+    /**
+     * <pre>
+     * Text for this enrichment item.
+     * </pre>
+     *
+     * <code>string text = 1;</code>
+     */
+    java.lang.String getText();
+
+    /**
+     * <pre>
+     * Text for this enrichment item.
+     * </pre>
+     *
+     * <code>string text = 1;</code>
+     */
+    com.google.protobuf.ByteString getTextBytes();
 }

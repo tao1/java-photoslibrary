@@ -4,6 +4,7 @@
 package com.google.photos.library.v1.proto;
 
 public interface UnshareAlbumResponseOrBuilder
-    extends
-    // @@protoc_insertion_point(interface_extends:google.photos.library.v1.UnshareAlbumResponse)
-    com.google.protobuf.MessageOrBuilder {}
+        extends
+        // @@protoc_insertion_point(interface_extends:google.photos.library.v1.UnshareAlbumResponse)
+        com.google.protobuf.MessageOrBuilder {
+}

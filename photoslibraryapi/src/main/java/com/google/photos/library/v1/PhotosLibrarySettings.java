@@ -28,134 +28,147 @@ import com.google.photos.library.v1.internal.InternalPhotosLibrarySettings;
 import com.google.photos.library.v1.internal.stub.PhotosLibraryStubSettings;
 import com.google.photos.library.v1.upload.UploadMediaItemRequest;
 import com.google.photos.library.v1.upload.UploadMediaItemResponse;
-import java.io.IOException;
-import javax.annotation.Nullable;
+
 import org.threeten.bp.Duration;
+
+import java.io.IOException;
+
+import javax.annotation.Nullable;
 
 /**
  * Wrapper of {@link InternalPhotosLibrarySettings}. This includes {@link UnaryCallSettings} as an
  * extension.
  */
 public final class PhotosLibrarySettings extends InternalPhotosLibrarySettings {
-  /** The default endpoint of the upload service. */
-  private static final String DEFAULT_UPLOAD_ENDPOINT =
-      "https://photoslibrary.googleapis.com/v1/uploads";
+    /**
+     * The default endpoint of the upload service.
+     */
+    private static final String DEFAULT_UPLOAD_ENDPOINT =
+            "https://photoslibrary.googleapis.com/v1/uploads";
 
-  private final UnaryCallSettings<UploadMediaItemRequest, UploadMediaItemResponse>
-      uploadMediaItemSettings;
+    private final UnaryCallSettings<UploadMediaItemRequest, UploadMediaItemResponse>
+            uploadMediaItemSettings;
 
-  protected PhotosLibrarySettings(Builder settingsBuilder) throws IOException {
-    super(settingsBuilder);
-    uploadMediaItemSettings = settingsBuilder.uploadMediaItemSettingsBuilder().build();
-  }
-
-  /** Returns the object with the settings used for calls to uploadMediaItem. */
-  public UnaryCallSettings<UploadMediaItemRequest, UploadMediaItemResponse>
-      uploadMediaItemSettings() {
-    return uploadMediaItemSettings;
-  }
-
-  /** Returns the upload endpoint used for calls to uploadMediaItem. */
-  public static String getUploadEndpoint() {
-    return DEFAULT_UPLOAD_ENDPOINT;
-  }
-
-  public static Builder newBuilder() {
-    return Builder.createDefault();
-  }
-
-  /** Builder class for {@link PhotosLibrarySettings}. */
-  public static final class Builder extends InternalPhotosLibrarySettings.Builder {
-
-    private UnaryCallSettings.Builder<UploadMediaItemRequest, UploadMediaItemResponse>
-        uploadMediaItemSettingsBuilder;
-
-    private Builder() throws IOException {
-      uploadMediaItemSettingsBuilder = UnaryCallSettings.newUnaryCallSettingsBuilder();
+    protected PhotosLibrarySettings(Builder settingsBuilder) throws IOException {
+        super(settingsBuilder);
+        uploadMediaItemSettings = settingsBuilder.uploadMediaItemSettingsBuilder().build();
     }
 
-    private Builder(ClientContext clientContext) {
-      super(clientContext);
-      uploadMediaItemSettingsBuilder = UnaryCallSettings.newUnaryCallSettingsBuilder();
+    /**
+     * Returns the object with the settings used for calls to uploadMediaItem.
+     */
+    public UnaryCallSettings<UploadMediaItemRequest, UploadMediaItemResponse>
+    uploadMediaItemSettings() {
+        return uploadMediaItemSettings;
     }
 
-    private Builder(InternalPhotosLibrarySettings settings) {
-      super(settings);
-      uploadMediaItemSettingsBuilder = UnaryCallSettings.newUnaryCallSettingsBuilder();
+    /**
+     * Returns the upload endpoint used for calls to uploadMediaItem.
+     */
+    public static String getUploadEndpoint() {
+        return DEFAULT_UPLOAD_ENDPOINT;
     }
 
-    private Builder(PhotosLibraryStubSettings.Builder stubSettings) {
-      super(stubSettings);
-      uploadMediaItemSettingsBuilder = UnaryCallSettings.newUnaryCallSettingsBuilder();
+    public static Builder newBuilder() {
+        return Builder.createDefault();
     }
 
-    @Override
-    public Builder setExecutorProvider(ExecutorProvider executorProvider) {
-      super.setExecutorProvider(executorProvider);
-      return this;
-    }
+    /**
+     * Builder class for {@link PhotosLibrarySettings}.
+     */
+    public static final class Builder extends InternalPhotosLibrarySettings.Builder {
 
-    @Override
-    public Builder setCredentialsProvider(CredentialsProvider credentialsProvider) {
-      super.setCredentialsProvider(credentialsProvider);
-      return this;
-    }
+        private UnaryCallSettings.Builder<UploadMediaItemRequest, UploadMediaItemResponse>
+                uploadMediaItemSettingsBuilder;
 
-    @Override
-    public Builder setHeaderProvider(HeaderProvider headerProvider) {
-      super.setHeaderProvider(headerProvider);
-      return this;
-    }
+        private Builder() throws IOException {
+            uploadMediaItemSettingsBuilder = UnaryCallSettings.newUnaryCallSettingsBuilder();
+        }
 
-    @Override
-    protected Builder setInternalHeaderProvider(HeaderProvider internalHeaderProvider) {
-      super.setInternalHeaderProvider(internalHeaderProvider);
-      return this;
-    }
+        private Builder(ClientContext clientContext) {
+            super(clientContext);
+            uploadMediaItemSettingsBuilder = UnaryCallSettings.newUnaryCallSettingsBuilder();
+        }
 
-    @Override
-    public Builder setTransportChannelProvider(TransportChannelProvider transportChannelProvider) {
-      super.setTransportChannelProvider(transportChannelProvider);
-      return this;
-    }
+        private Builder(InternalPhotosLibrarySettings settings) {
+            super(settings);
+            uploadMediaItemSettingsBuilder = UnaryCallSettings.newUnaryCallSettingsBuilder();
+        }
 
-    @Override
-    public Builder setClock(ApiClock clock) {
-      super.setClock(clock);
-      return this;
-    }
+        private Builder(PhotosLibraryStubSettings.Builder stubSettings) {
+            super(stubSettings);
+            uploadMediaItemSettingsBuilder = UnaryCallSettings.newUnaryCallSettingsBuilder();
+        }
 
-    @Override
-    public Builder setEndpoint(String endpoint) {
-      super.setEndpoint(endpoint);
-      return this;
-    }
+        @Override
+        public Builder setExecutorProvider(ExecutorProvider executorProvider) {
+            super.setExecutorProvider(executorProvider);
+            return this;
+        }
 
-    @Override
-    public Builder setWatchdogProvider(@Nullable WatchdogProvider watchdogProvider) {
-      super.setWatchdogProvider(watchdogProvider);
-      return this;
-    }
+        @Override
+        public Builder setCredentialsProvider(CredentialsProvider credentialsProvider) {
+            super.setCredentialsProvider(credentialsProvider);
+            return this;
+        }
 
-    @Override
-    public Builder setWatchdogCheckInterval(@Nullable Duration checkInterval) {
-      super.setWatchdogCheckInterval(checkInterval);
-      return this;
-    }
+        @Override
+        public Builder setHeaderProvider(HeaderProvider headerProvider) {
+            super.setHeaderProvider(headerProvider);
+            return this;
+        }
 
-    @Override
-    public PhotosLibrarySettings build() throws IOException {
-      return new PhotosLibrarySettings(this);
-    }
+        @Override
+        protected Builder setInternalHeaderProvider(HeaderProvider internalHeaderProvider) {
+            super.setInternalHeaderProvider(internalHeaderProvider);
+            return this;
+        }
 
-    /** Returns the builder for the settings used for calls to uploadMediaItem. */
-    public UnaryCallSettings.Builder<UploadMediaItemRequest, UploadMediaItemResponse>
+        @Override
+        public Builder setTransportChannelProvider(TransportChannelProvider transportChannelProvider) {
+            super.setTransportChannelProvider(transportChannelProvider);
+            return this;
+        }
+
+        @Override
+        public Builder setClock(ApiClock clock) {
+            super.setClock(clock);
+            return this;
+        }
+
+        @Override
+        public Builder setEndpoint(String endpoint) {
+            super.setEndpoint(endpoint);
+            return this;
+        }
+
+        @Override
+        public Builder setWatchdogProvider(@Nullable WatchdogProvider watchdogProvider) {
+            super.setWatchdogProvider(watchdogProvider);
+            return this;
+        }
+
+        @Override
+        public Builder setWatchdogCheckInterval(@Nullable Duration checkInterval) {
+            super.setWatchdogCheckInterval(checkInterval);
+            return this;
+        }
+
+        @Override
+        public PhotosLibrarySettings build() throws IOException {
+            return new PhotosLibrarySettings(this);
+        }
+
+        /**
+         * Returns the builder for the settings used for calls to uploadMediaItem.
+         */
+        public UnaryCallSettings.Builder<UploadMediaItemRequest, UploadMediaItemResponse>
         uploadMediaItemSettingsBuilder() {
-      return uploadMediaItemSettingsBuilder;
-    }
+            return uploadMediaItemSettingsBuilder;
+        }
 
-    public static Builder createDefault() {
-      return new Builder(PhotosLibraryStubSettings.newBuilder());
+        public static Builder createDefault() {
+            return new Builder(PhotosLibraryStubSettings.newBuilder());
+        }
     }
-  }
 }

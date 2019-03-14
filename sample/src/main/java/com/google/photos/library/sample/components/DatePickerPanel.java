@@ -17,6 +17,7 @@
 package com.google.photos.library.sample.components;
 
 import com.google.type.Date;
+
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -25,74 +26,77 @@ import java.util.List;
 import java.util.Optional;
 import java.util.OptionalInt;
 import java.util.function.Consumer;
+
 import javax.swing.JFormattedTextField;
 import javax.swing.JPanel;
 
-/** A component that lets user enter day, month, and year. */
+/**
+ * A component that lets user enter day, month, and year.
+ */
 public final class DatePickerPanel extends JPanel implements ActionListener {
-  private final JFormattedTextField yearTextField;
-  private final JFormattedTextField monthTextField;
-  private final JFormattedTextField dayTextField;
-  private List<Consumer<Date>> dateConsumers;
+    private final JFormattedTextField yearTextField;
+    private final JFormattedTextField monthTextField;
+    private final JFormattedTextField dayTextField;
+    private List<Consumer<Date>> dateConsumers;
 
-  public DatePickerPanel() {
-    super();
-    setLayout(new GridLayout(1 /* rows */, 3 /* cols */));
+    public DatePickerPanel() {
+        super();
+        setLayout(new GridLayout(1 /* rows */, 3 /* cols */));
 
-    yearTextField = new JFormattedTextField();
-    yearTextField.setToolTipText("Year (YYYY)");
-    yearTextField.addActionListener(this);
-    add(yearTextField);
+        yearTextField = new JFormattedTextField();
+        yearTextField.setToolTipText("Year (YYYY)");
+        yearTextField.addActionListener(this);
+        add(yearTextField);
 
-    monthTextField = new JFormattedTextField();
-    monthTextField.setToolTipText("Month (MM)");
-    monthTextField.addActionListener(this);
-    add(monthTextField);
+        monthTextField = new JFormattedTextField();
+        monthTextField.setToolTipText("Month (MM)");
+        monthTextField.addActionListener(this);
+        add(monthTextField);
 
-    dayTextField = new JFormattedTextField();
-    dayTextField.setToolTipText("Day (DD)");
-    dayTextField.addActionListener(this);
-    add(dayTextField);
+        dayTextField = new JFormattedTextField();
+        dayTextField.setToolTipText("Day (DD)");
+        dayTextField.addActionListener(this);
+        add(dayTextField);
 
-    dateConsumers = new ArrayList<>();
-  }
-
-  public void addDateConsumer(Consumer<Date> dateConsumer) {
-    dateConsumers.add(dateConsumer);
-  }
-
-  public Date getSelectedDate() {
-    Date.Builder dateBuilder = Date.newBuilder();
-
-    OptionalInt year = tryParseInt(yearTextField.getText());
-    if (year.isPresent()) {
-      dateBuilder.setYear(year.getAsInt());
+        dateConsumers = new ArrayList<>();
     }
 
-    OptionalInt month = tryParseInt(monthTextField.getText());
-    if (month.isPresent()) {
-      dateBuilder.setMonth(month.getAsInt());
+    public void addDateConsumer(Consumer<Date> dateConsumer) {
+        dateConsumers.add(dateConsumer);
     }
 
-    OptionalInt day = tryParseInt(dayTextField.getText());
-    if (day.isPresent()) {
-      dateBuilder.setDay(day.getAsInt());
+    public Date getSelectedDate() {
+        Date.Builder dateBuilder = Date.newBuilder();
+
+        OptionalInt year = tryParseInt(yearTextField.getText());
+        if (year.isPresent()) {
+            dateBuilder.setYear(year.getAsInt());
+        }
+
+        OptionalInt month = tryParseInt(monthTextField.getText());
+        if (month.isPresent()) {
+            dateBuilder.setMonth(month.getAsInt());
+        }
+
+        OptionalInt day = tryParseInt(dayTextField.getText());
+        if (day.isPresent()) {
+            dateBuilder.setDay(day.getAsInt());
+        }
+
+        return dateBuilder.build();
     }
 
-    return dateBuilder.build();
-  }
-
-  private OptionalInt tryParseInt(String text) {
-    return Optional.of(text)
-        .filter(s -> s.matches("\\d+"))
-        .map(s -> OptionalInt.of(Integer.parseInt(s)))
-        .orElse(OptionalInt.empty());
-  }
-
-  @Override
-  public void actionPerformed(ActionEvent e) {
-    for (Consumer<Date> dateConsumer : dateConsumers) {
-      dateConsumer.accept(getSelectedDate());
+    private OptionalInt tryParseInt(String text) {
+        return Optional.of(text)
+                .filter(s -> s.matches("\\d+"))
+                .map(s -> OptionalInt.of(Integer.parseInt(s)))
+                .orElse(OptionalInt.empty());
     }
-  }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        for (Consumer<Date> dateConsumer : dateConsumers) {
+            dateConsumer.accept(getSelectedDate());
+        }
+    }
 }

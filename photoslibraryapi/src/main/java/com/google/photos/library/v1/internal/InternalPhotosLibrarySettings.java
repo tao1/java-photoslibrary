@@ -15,11 +15,6 @@
  */
 package com.google.photos.library.v1.internal;
 
-import static com.google.photos.library.v1.internal.InternalPhotosLibraryClient.ListAlbumsPagedResponse;
-import static com.google.photos.library.v1.internal.InternalPhotosLibraryClient.ListMediaItemsPagedResponse;
-import static com.google.photos.library.v1.internal.InternalPhotosLibraryClient.ListSharedAlbumsPagedResponse;
-import static com.google.photos.library.v1.internal.InternalPhotosLibraryClient.SearchMediaItemsPagedResponse;
-
 import com.google.api.core.ApiFunction;
 import com.google.api.core.BetaApi;
 import com.google.api.gax.core.GoogleCredentialsProvider;
@@ -60,20 +55,28 @@ import com.google.photos.library.v1.proto.ShareAlbumRequest;
 import com.google.photos.library.v1.proto.ShareAlbumResponse;
 import com.google.photos.library.v1.proto.UnshareAlbumRequest;
 import com.google.photos.library.v1.proto.UnshareAlbumResponse;
+
 import java.io.IOException;
 import java.util.List;
+
 import javax.annotation.Generated;
 
+import static com.google.photos.library.v1.internal.InternalPhotosLibraryClient.ListAlbumsPagedResponse;
+import static com.google.photos.library.v1.internal.InternalPhotosLibraryClient.ListMediaItemsPagedResponse;
+import static com.google.photos.library.v1.internal.InternalPhotosLibraryClient.ListSharedAlbumsPagedResponse;
+import static com.google.photos.library.v1.internal.InternalPhotosLibraryClient.SearchMediaItemsPagedResponse;
+
 // AUTO-GENERATED DOCUMENTATION AND CLASS
+
 /**
  * Settings class to configure an instance of {@link InternalPhotosLibraryClient}.
  *
  * <p>The default instance has everything set to sensible defaults:
  *
  * <ul>
- *   <li>The default service address (photoslibrary.googleapis.com) and default port (443) are used.
- *   <li>Credentials are acquired automatically through Application Default Credentials.
- *   <li>Retries are configured for idempotent methods but not for non-idempotent methods.
+ * <li>The default service address (photoslibrary.googleapis.com) and default port (443) are used.
+ * <li>Credentials are acquired automatically through Application Default Credentials.
+ * <li>Retries are configured for idempotent methods but not for non-idempotent methods.
  * </ul>
  *
  * <p>The builder of this class is recursive, so contained classes are themselves builders. When
@@ -93,282 +96,361 @@ import javax.annotation.Generated;
 @Generated("by gapic-generator")
 @BetaApi
 public class InternalPhotosLibrarySettings extends ClientSettings<InternalPhotosLibrarySettings> {
-  /** Returns the object with the settings used for calls to createAlbum. */
-  public UnaryCallSettings<CreateAlbumRequest, Album> createAlbumSettings() {
-    return ((PhotosLibraryStubSettings) getStubSettings()).createAlbumSettings();
-  }
-
-  /** Returns the object with the settings used for calls to batchCreateMediaItems. */
-  public UnaryCallSettings<BatchCreateMediaItemsRequest, BatchCreateMediaItemsResponse>
-      batchCreateMediaItemsSettings() {
-    return ((PhotosLibraryStubSettings) getStubSettings()).batchCreateMediaItemsSettings();
-  }
-
-  /** Returns the object with the settings used for calls to searchMediaItems. */
-  public PagedCallSettings<
-          SearchMediaItemsRequest, SearchMediaItemsResponse, SearchMediaItemsPagedResponse>
-      searchMediaItemsSettings() {
-    return ((PhotosLibraryStubSettings) getStubSettings()).searchMediaItemsSettings();
-  }
-
-  /** Returns the object with the settings used for calls to listMediaItems. */
-  public PagedCallSettings<
-          ListMediaItemsRequest, ListMediaItemsResponse, ListMediaItemsPagedResponse>
-      listMediaItemsSettings() {
-    return ((PhotosLibraryStubSettings) getStubSettings()).listMediaItemsSettings();
-  }
-
-  /** Returns the object with the settings used for calls to getMediaItem. */
-  public UnaryCallSettings<GetMediaItemRequest, MediaItem> getMediaItemSettings() {
-    return ((PhotosLibraryStubSettings) getStubSettings()).getMediaItemSettings();
-  }
-
-  /** Returns the object with the settings used for calls to batchGetMediaItems. */
-  public UnaryCallSettings<BatchGetMediaItemsRequest, BatchGetMediaItemsResponse>
-      batchGetMediaItemsSettings() {
-    return ((PhotosLibraryStubSettings) getStubSettings()).batchGetMediaItemsSettings();
-  }
-
-  /** Returns the object with the settings used for calls to listAlbums. */
-  public PagedCallSettings<ListAlbumsRequest, ListAlbumsResponse, ListAlbumsPagedResponse>
-      listAlbumsSettings() {
-    return ((PhotosLibraryStubSettings) getStubSettings()).listAlbumsSettings();
-  }
-
-  /** Returns the object with the settings used for calls to getAlbum. */
-  public UnaryCallSettings<GetAlbumRequest, Album> getAlbumSettings() {
-    return ((PhotosLibraryStubSettings) getStubSettings()).getAlbumSettings();
-  }
-
-  /** Returns the object with the settings used for calls to getSharedAlbum. */
-  public UnaryCallSettings<GetSharedAlbumRequest, Album> getSharedAlbumSettings() {
-    return ((PhotosLibraryStubSettings) getStubSettings()).getSharedAlbumSettings();
-  }
-
-  /** Returns the object with the settings used for calls to addEnrichmentToAlbum. */
-  public UnaryCallSettings<AddEnrichmentToAlbumRequest, AddEnrichmentToAlbumResponse>
-      addEnrichmentToAlbumSettings() {
-    return ((PhotosLibraryStubSettings) getStubSettings()).addEnrichmentToAlbumSettings();
-  }
-
-  /** Returns the object with the settings used for calls to joinSharedAlbum. */
-  public UnaryCallSettings<JoinSharedAlbumRequest, JoinSharedAlbumResponse>
-      joinSharedAlbumSettings() {
-    return ((PhotosLibraryStubSettings) getStubSettings()).joinSharedAlbumSettings();
-  }
-
-  /** Returns the object with the settings used for calls to leaveSharedAlbum. */
-  public UnaryCallSettings<LeaveSharedAlbumRequest, LeaveSharedAlbumResponse>
-      leaveSharedAlbumSettings() {
-    return ((PhotosLibraryStubSettings) getStubSettings()).leaveSharedAlbumSettings();
-  }
-
-  /** Returns the object with the settings used for calls to shareAlbum. */
-  public UnaryCallSettings<ShareAlbumRequest, ShareAlbumResponse> shareAlbumSettings() {
-    return ((PhotosLibraryStubSettings) getStubSettings()).shareAlbumSettings();
-  }
-
-  /** Returns the object with the settings used for calls to listSharedAlbums. */
-  public PagedCallSettings<
-          ListSharedAlbumsRequest, ListSharedAlbumsResponse, ListSharedAlbumsPagedResponse>
-      listSharedAlbumsSettings() {
-    return ((PhotosLibraryStubSettings) getStubSettings()).listSharedAlbumsSettings();
-  }
-
-  /** Returns the object with the settings used for calls to unshareAlbum. */
-  public UnaryCallSettings<UnshareAlbumRequest, UnshareAlbumResponse> unshareAlbumSettings() {
-    return ((PhotosLibraryStubSettings) getStubSettings()).unshareAlbumSettings();
-  }
-
-  public static final InternalPhotosLibrarySettings create(PhotosLibraryStubSettings stub)
-      throws IOException {
-    return new InternalPhotosLibrarySettings.Builder(stub.toBuilder()).build();
-  }
-
-  /** Returns a builder for the default ExecutorProvider for this service. */
-  public static InstantiatingExecutorProvider.Builder defaultExecutorProviderBuilder() {
-    return PhotosLibraryStubSettings.defaultExecutorProviderBuilder();
-  }
-
-  /** Returns the default service endpoint. */
-  public static String getDefaultEndpoint() {
-    return PhotosLibraryStubSettings.getDefaultEndpoint();
-  }
-
-  /** Returns the default service scopes. */
-  public static List<String> getDefaultServiceScopes() {
-    return PhotosLibraryStubSettings.getDefaultServiceScopes();
-  }
-
-  /** Returns a builder for the default credentials for this service. */
-  public static GoogleCredentialsProvider.Builder defaultCredentialsProviderBuilder() {
-    return PhotosLibraryStubSettings.defaultCredentialsProviderBuilder();
-  }
-
-  /** Returns a builder for the default ChannelProvider for this service. */
-  public static InstantiatingGrpcChannelProvider.Builder defaultGrpcTransportProviderBuilder() {
-    return PhotosLibraryStubSettings.defaultGrpcTransportProviderBuilder();
-  }
-
-  public static TransportChannelProvider defaultTransportChannelProvider() {
-    return PhotosLibraryStubSettings.defaultTransportChannelProvider();
-  }
-
-  @BetaApi("The surface for customizing headers is not stable yet and may change in the future.")
-  public static ApiClientHeaderProvider.Builder defaultApiClientHeaderProviderBuilder() {
-    return PhotosLibraryStubSettings.defaultApiClientHeaderProviderBuilder();
-  }
-
-  /** Returns a new builder for this class. */
-  public static Builder newBuilder() {
-    return Builder.createDefault();
-  }
-
-  /** Returns a new builder for this class. */
-  public static Builder newBuilder(ClientContext clientContext) {
-    return new Builder(clientContext);
-  }
-
-  /** Returns a builder containing all the values of this settings class. */
-  public Builder toBuilder() {
-    return new Builder(this);
-  }
-
-  protected InternalPhotosLibrarySettings(Builder settingsBuilder) throws IOException {
-    super(settingsBuilder);
-  }
-
-  /** Builder for InternalPhotosLibrarySettings. */
-  public static class Builder
-      extends ClientSettings.Builder<InternalPhotosLibrarySettings, Builder> {
-    protected Builder() throws IOException {
-      this((ClientContext) null);
-    }
-
-    protected Builder(ClientContext clientContext) {
-      super(PhotosLibraryStubSettings.newBuilder(clientContext));
-    }
-
-    private static Builder createDefault() {
-      return new Builder(PhotosLibraryStubSettings.newBuilder());
-    }
-
-    protected Builder(InternalPhotosLibrarySettings settings) {
-      super(settings.getStubSettings().toBuilder());
-    }
-
-    protected Builder(PhotosLibraryStubSettings.Builder stubSettings) {
-      super(stubSettings);
-    }
-
-    public PhotosLibraryStubSettings.Builder getStubSettingsBuilder() {
-      return ((PhotosLibraryStubSettings.Builder) getStubSettings());
-    }
-
-    // NEXT_MAJOR_VER: remove 'throws Exception'
     /**
-     * Applies the given settings updater function to all of the unary API methods in this service.
-     *
-     * <p>Note: This method does not support applying settings to streaming methods.
+     * Returns the object with the settings used for calls to createAlbum.
      */
-    public Builder applyToAllUnaryMethods(
-        ApiFunction<UnaryCallSettings.Builder<?, ?>, Void> settingsUpdater) throws Exception {
-      super.applyToAllUnaryMethods(
-          getStubSettingsBuilder().unaryMethodSettingsBuilders(), settingsUpdater);
-      return this;
+    public UnaryCallSettings<CreateAlbumRequest, Album> createAlbumSettings() {
+        return ((PhotosLibraryStubSettings) getStubSettings()).createAlbumSettings();
     }
 
-    /** Returns the builder for the settings used for calls to createAlbum. */
-    public UnaryCallSettings.Builder<CreateAlbumRequest, Album> createAlbumSettings() {
-      return getStubSettingsBuilder().createAlbumSettings();
+    /**
+     * Returns the object with the settings used for calls to batchCreateMediaItems.
+     */
+    public UnaryCallSettings<BatchCreateMediaItemsRequest, BatchCreateMediaItemsResponse>
+    batchCreateMediaItemsSettings() {
+        return ((PhotosLibraryStubSettings) getStubSettings()).batchCreateMediaItemsSettings();
     }
 
-    /** Returns the builder for the settings used for calls to batchCreateMediaItems. */
-    public UnaryCallSettings.Builder<BatchCreateMediaItemsRequest, BatchCreateMediaItemsResponse>
-        batchCreateMediaItemsSettings() {
-      return getStubSettingsBuilder().batchCreateMediaItemsSettings();
-    }
-
-    /** Returns the builder for the settings used for calls to searchMediaItems. */
-    public PagedCallSettings.Builder<
+    /**
+     * Returns the object with the settings used for calls to searchMediaItems.
+     */
+    public PagedCallSettings<
             SearchMediaItemsRequest, SearchMediaItemsResponse, SearchMediaItemsPagedResponse>
-        searchMediaItemsSettings() {
-      return getStubSettingsBuilder().searchMediaItemsSettings();
+    searchMediaItemsSettings() {
+        return ((PhotosLibraryStubSettings) getStubSettings()).searchMediaItemsSettings();
     }
 
-    /** Returns the builder for the settings used for calls to listMediaItems. */
-    public PagedCallSettings.Builder<
+    /**
+     * Returns the object with the settings used for calls to listMediaItems.
+     */
+    public PagedCallSettings<
             ListMediaItemsRequest, ListMediaItemsResponse, ListMediaItemsPagedResponse>
-        listMediaItemsSettings() {
-      return getStubSettingsBuilder().listMediaItemsSettings();
+    listMediaItemsSettings() {
+        return ((PhotosLibraryStubSettings) getStubSettings()).listMediaItemsSettings();
     }
 
-    /** Returns the builder for the settings used for calls to getMediaItem. */
-    public UnaryCallSettings.Builder<GetMediaItemRequest, MediaItem> getMediaItemSettings() {
-      return getStubSettingsBuilder().getMediaItemSettings();
+    /**
+     * Returns the object with the settings used for calls to getMediaItem.
+     */
+    public UnaryCallSettings<GetMediaItemRequest, MediaItem> getMediaItemSettings() {
+        return ((PhotosLibraryStubSettings) getStubSettings()).getMediaItemSettings();
     }
 
-    /** Returns the builder for the settings used for calls to batchGetMediaItems. */
-    public UnaryCallSettings.Builder<BatchGetMediaItemsRequest, BatchGetMediaItemsResponse>
-        batchGetMediaItemsSettings() {
-      return getStubSettingsBuilder().batchGetMediaItemsSettings();
+    /**
+     * Returns the object with the settings used for calls to batchGetMediaItems.
+     */
+    public UnaryCallSettings<BatchGetMediaItemsRequest, BatchGetMediaItemsResponse>
+    batchGetMediaItemsSettings() {
+        return ((PhotosLibraryStubSettings) getStubSettings()).batchGetMediaItemsSettings();
     }
 
-    /** Returns the builder for the settings used for calls to listAlbums. */
-    public PagedCallSettings.Builder<ListAlbumsRequest, ListAlbumsResponse, ListAlbumsPagedResponse>
-        listAlbumsSettings() {
-      return getStubSettingsBuilder().listAlbumsSettings();
+    /**
+     * Returns the object with the settings used for calls to listAlbums.
+     */
+    public PagedCallSettings<ListAlbumsRequest, ListAlbumsResponse, ListAlbumsPagedResponse>
+    listAlbumsSettings() {
+        return ((PhotosLibraryStubSettings) getStubSettings()).listAlbumsSettings();
     }
 
-    /** Returns the builder for the settings used for calls to getAlbum. */
-    public UnaryCallSettings.Builder<GetAlbumRequest, Album> getAlbumSettings() {
-      return getStubSettingsBuilder().getAlbumSettings();
+    /**
+     * Returns the object with the settings used for calls to getAlbum.
+     */
+    public UnaryCallSettings<GetAlbumRequest, Album> getAlbumSettings() {
+        return ((PhotosLibraryStubSettings) getStubSettings()).getAlbumSettings();
     }
 
-    /** Returns the builder for the settings used for calls to getSharedAlbum. */
-    public UnaryCallSettings.Builder<GetSharedAlbumRequest, Album> getSharedAlbumSettings() {
-      return getStubSettingsBuilder().getSharedAlbumSettings();
+    /**
+     * Returns the object with the settings used for calls to getSharedAlbum.
+     */
+    public UnaryCallSettings<GetSharedAlbumRequest, Album> getSharedAlbumSettings() {
+        return ((PhotosLibraryStubSettings) getStubSettings()).getSharedAlbumSettings();
     }
 
-    /** Returns the builder for the settings used for calls to addEnrichmentToAlbum. */
-    public UnaryCallSettings.Builder<AddEnrichmentToAlbumRequest, AddEnrichmentToAlbumResponse>
-        addEnrichmentToAlbumSettings() {
-      return getStubSettingsBuilder().addEnrichmentToAlbumSettings();
+    /**
+     * Returns the object with the settings used for calls to addEnrichmentToAlbum.
+     */
+    public UnaryCallSettings<AddEnrichmentToAlbumRequest, AddEnrichmentToAlbumResponse>
+    addEnrichmentToAlbumSettings() {
+        return ((PhotosLibraryStubSettings) getStubSettings()).addEnrichmentToAlbumSettings();
     }
 
-    /** Returns the builder for the settings used for calls to joinSharedAlbum. */
-    public UnaryCallSettings.Builder<JoinSharedAlbumRequest, JoinSharedAlbumResponse>
-        joinSharedAlbumSettings() {
-      return getStubSettingsBuilder().joinSharedAlbumSettings();
+    /**
+     * Returns the object with the settings used for calls to joinSharedAlbum.
+     */
+    public UnaryCallSettings<JoinSharedAlbumRequest, JoinSharedAlbumResponse>
+    joinSharedAlbumSettings() {
+        return ((PhotosLibraryStubSettings) getStubSettings()).joinSharedAlbumSettings();
     }
 
-    /** Returns the builder for the settings used for calls to leaveSharedAlbum. */
-    public UnaryCallSettings.Builder<LeaveSharedAlbumRequest, LeaveSharedAlbumResponse>
-        leaveSharedAlbumSettings() {
-      return getStubSettingsBuilder().leaveSharedAlbumSettings();
+    /**
+     * Returns the object with the settings used for calls to leaveSharedAlbum.
+     */
+    public UnaryCallSettings<LeaveSharedAlbumRequest, LeaveSharedAlbumResponse>
+    leaveSharedAlbumSettings() {
+        return ((PhotosLibraryStubSettings) getStubSettings()).leaveSharedAlbumSettings();
     }
 
-    /** Returns the builder for the settings used for calls to shareAlbum. */
-    public UnaryCallSettings.Builder<ShareAlbumRequest, ShareAlbumResponse> shareAlbumSettings() {
-      return getStubSettingsBuilder().shareAlbumSettings();
+    /**
+     * Returns the object with the settings used for calls to shareAlbum.
+     */
+    public UnaryCallSettings<ShareAlbumRequest, ShareAlbumResponse> shareAlbumSettings() {
+        return ((PhotosLibraryStubSettings) getStubSettings()).shareAlbumSettings();
     }
 
-    /** Returns the builder for the settings used for calls to listSharedAlbums. */
-    public PagedCallSettings.Builder<
+    /**
+     * Returns the object with the settings used for calls to listSharedAlbums.
+     */
+    public PagedCallSettings<
             ListSharedAlbumsRequest, ListSharedAlbumsResponse, ListSharedAlbumsPagedResponse>
+    listSharedAlbumsSettings() {
+        return ((PhotosLibraryStubSettings) getStubSettings()).listSharedAlbumsSettings();
+    }
+
+    /**
+     * Returns the object with the settings used for calls to unshareAlbum.
+     */
+    public UnaryCallSettings<UnshareAlbumRequest, UnshareAlbumResponse> unshareAlbumSettings() {
+        return ((PhotosLibraryStubSettings) getStubSettings()).unshareAlbumSettings();
+    }
+
+    public static final InternalPhotosLibrarySettings create(PhotosLibraryStubSettings stub)
+            throws IOException {
+        return new InternalPhotosLibrarySettings.Builder(stub.toBuilder()).build();
+    }
+
+    /**
+     * Returns a builder for the default ExecutorProvider for this service.
+     */
+    public static InstantiatingExecutorProvider.Builder defaultExecutorProviderBuilder() {
+        return PhotosLibraryStubSettings.defaultExecutorProviderBuilder();
+    }
+
+    /**
+     * Returns the default service endpoint.
+     */
+    public static String getDefaultEndpoint() {
+        return PhotosLibraryStubSettings.getDefaultEndpoint();
+    }
+
+    /**
+     * Returns the default service scopes.
+     */
+    public static List<String> getDefaultServiceScopes() {
+        return PhotosLibraryStubSettings.getDefaultServiceScopes();
+    }
+
+    /**
+     * Returns a builder for the default credentials for this service.
+     */
+    public static GoogleCredentialsProvider.Builder defaultCredentialsProviderBuilder() {
+        return PhotosLibraryStubSettings.defaultCredentialsProviderBuilder();
+    }
+
+    /**
+     * Returns a builder for the default ChannelProvider for this service.
+     */
+    public static InstantiatingGrpcChannelProvider.Builder defaultGrpcTransportProviderBuilder() {
+        return PhotosLibraryStubSettings.defaultGrpcTransportProviderBuilder();
+    }
+
+    public static TransportChannelProvider defaultTransportChannelProvider() {
+        return PhotosLibraryStubSettings.defaultTransportChannelProvider();
+    }
+
+    @BetaApi("The surface for customizing headers is not stable yet and may change in the future.")
+    public static ApiClientHeaderProvider.Builder defaultApiClientHeaderProviderBuilder() {
+        return PhotosLibraryStubSettings.defaultApiClientHeaderProviderBuilder();
+    }
+
+    /**
+     * Returns a new builder for this class.
+     */
+    public static Builder newBuilder() {
+        return Builder.createDefault();
+    }
+
+    /**
+     * Returns a new builder for this class.
+     */
+    public static Builder newBuilder(ClientContext clientContext) {
+        return new Builder(clientContext);
+    }
+
+    /**
+     * Returns a builder containing all the values of this settings class.
+     */
+    public Builder toBuilder() {
+        return new Builder(this);
+    }
+
+    protected InternalPhotosLibrarySettings(Builder settingsBuilder) throws IOException {
+        super(settingsBuilder);
+    }
+
+    /**
+     * Builder for InternalPhotosLibrarySettings.
+     */
+    public static class Builder
+            extends ClientSettings.Builder<InternalPhotosLibrarySettings, Builder> {
+        protected Builder() throws IOException {
+            this((ClientContext) null);
+        }
+
+        protected Builder(ClientContext clientContext) {
+            super(PhotosLibraryStubSettings.newBuilder(clientContext));
+        }
+
+        private static Builder createDefault() {
+            return new Builder(PhotosLibraryStubSettings.newBuilder());
+        }
+
+        protected Builder(InternalPhotosLibrarySettings settings) {
+            super(settings.getStubSettings().toBuilder());
+        }
+
+        protected Builder(PhotosLibraryStubSettings.Builder stubSettings) {
+            super(stubSettings);
+        }
+
+        public PhotosLibraryStubSettings.Builder getStubSettingsBuilder() {
+            return ((PhotosLibraryStubSettings.Builder) getStubSettings());
+        }
+
+        // NEXT_MAJOR_VER: remove 'throws Exception'
+
+        /**
+         * Applies the given settings updater function to all of the unary API methods in this service.
+         *
+         * <p>Note: This method does not support applying settings to streaming methods.
+         */
+        public Builder applyToAllUnaryMethods(
+                ApiFunction<UnaryCallSettings.Builder<?, ?>, Void> settingsUpdater) throws Exception {
+            super.applyToAllUnaryMethods(
+                    getStubSettingsBuilder().unaryMethodSettingsBuilders(), settingsUpdater);
+            return this;
+        }
+
+        /**
+         * Returns the builder for the settings used for calls to createAlbum.
+         */
+        public UnaryCallSettings.Builder<CreateAlbumRequest, Album> createAlbumSettings() {
+            return getStubSettingsBuilder().createAlbumSettings();
+        }
+
+        /**
+         * Returns the builder for the settings used for calls to batchCreateMediaItems.
+         */
+        public UnaryCallSettings.Builder<BatchCreateMediaItemsRequest, BatchCreateMediaItemsResponse>
+        batchCreateMediaItemsSettings() {
+            return getStubSettingsBuilder().batchCreateMediaItemsSettings();
+        }
+
+        /**
+         * Returns the builder for the settings used for calls to searchMediaItems.
+         */
+        public PagedCallSettings.Builder<
+                SearchMediaItemsRequest, SearchMediaItemsResponse, SearchMediaItemsPagedResponse>
+        searchMediaItemsSettings() {
+            return getStubSettingsBuilder().searchMediaItemsSettings();
+        }
+
+        /**
+         * Returns the builder for the settings used for calls to listMediaItems.
+         */
+        public PagedCallSettings.Builder<
+                ListMediaItemsRequest, ListMediaItemsResponse, ListMediaItemsPagedResponse>
+        listMediaItemsSettings() {
+            return getStubSettingsBuilder().listMediaItemsSettings();
+        }
+
+        /**
+         * Returns the builder for the settings used for calls to getMediaItem.
+         */
+        public UnaryCallSettings.Builder<GetMediaItemRequest, MediaItem> getMediaItemSettings() {
+            return getStubSettingsBuilder().getMediaItemSettings();
+        }
+
+        /**
+         * Returns the builder for the settings used for calls to batchGetMediaItems.
+         */
+        public UnaryCallSettings.Builder<BatchGetMediaItemsRequest, BatchGetMediaItemsResponse>
+        batchGetMediaItemsSettings() {
+            return getStubSettingsBuilder().batchGetMediaItemsSettings();
+        }
+
+        /**
+         * Returns the builder for the settings used for calls to listAlbums.
+         */
+        public PagedCallSettings.Builder<ListAlbumsRequest, ListAlbumsResponse, ListAlbumsPagedResponse>
+        listAlbumsSettings() {
+            return getStubSettingsBuilder().listAlbumsSettings();
+        }
+
+        /**
+         * Returns the builder for the settings used for calls to getAlbum.
+         */
+        public UnaryCallSettings.Builder<GetAlbumRequest, Album> getAlbumSettings() {
+            return getStubSettingsBuilder().getAlbumSettings();
+        }
+
+        /**
+         * Returns the builder for the settings used for calls to getSharedAlbum.
+         */
+        public UnaryCallSettings.Builder<GetSharedAlbumRequest, Album> getSharedAlbumSettings() {
+            return getStubSettingsBuilder().getSharedAlbumSettings();
+        }
+
+        /**
+         * Returns the builder for the settings used for calls to addEnrichmentToAlbum.
+         */
+        public UnaryCallSettings.Builder<AddEnrichmentToAlbumRequest, AddEnrichmentToAlbumResponse>
+        addEnrichmentToAlbumSettings() {
+            return getStubSettingsBuilder().addEnrichmentToAlbumSettings();
+        }
+
+        /**
+         * Returns the builder for the settings used for calls to joinSharedAlbum.
+         */
+        public UnaryCallSettings.Builder<JoinSharedAlbumRequest, JoinSharedAlbumResponse>
+        joinSharedAlbumSettings() {
+            return getStubSettingsBuilder().joinSharedAlbumSettings();
+        }
+
+        /**
+         * Returns the builder for the settings used for calls to leaveSharedAlbum.
+         */
+        public UnaryCallSettings.Builder<LeaveSharedAlbumRequest, LeaveSharedAlbumResponse>
+        leaveSharedAlbumSettings() {
+            return getStubSettingsBuilder().leaveSharedAlbumSettings();
+        }
+
+        /**
+         * Returns the builder for the settings used for calls to shareAlbum.
+         */
+        public UnaryCallSettings.Builder<ShareAlbumRequest, ShareAlbumResponse> shareAlbumSettings() {
+            return getStubSettingsBuilder().shareAlbumSettings();
+        }
+
+        /**
+         * Returns the builder for the settings used for calls to listSharedAlbums.
+         */
+        public PagedCallSettings.Builder<
+                ListSharedAlbumsRequest, ListSharedAlbumsResponse, ListSharedAlbumsPagedResponse>
         listSharedAlbumsSettings() {
-      return getStubSettingsBuilder().listSharedAlbumsSettings();
-    }
+            return getStubSettingsBuilder().listSharedAlbumsSettings();
+        }
 
-    /** Returns the builder for the settings used for calls to unshareAlbum. */
-    public UnaryCallSettings.Builder<UnshareAlbumRequest, UnshareAlbumResponse>
+        /**
+         * Returns the builder for the settings used for calls to unshareAlbum.
+         */
+        public UnaryCallSettings.Builder<UnshareAlbumRequest, UnshareAlbumResponse>
         unshareAlbumSettings() {
-      return getStubSettingsBuilder().unshareAlbumSettings();
-    }
+            return getStubSettingsBuilder().unshareAlbumSettings();
+        }
 
-    @Override
-    public InternalPhotosLibrarySettings build() throws IOException {
-      return new InternalPhotosLibrarySettings(this);
+        @Override
+        public InternalPhotosLibrarySettings build() throws IOException {
+            return new InternalPhotosLibrarySettings(this);
+        }
     }
-  }
 }

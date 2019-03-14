@@ -4,80 +4,74 @@
 package com.google.photos.library.v1.proto;
 
 public interface BatchGetMediaItemsResponseOrBuilder
-    extends
-    // @@protoc_insertion_point(interface_extends:google.photos.library.v1.BatchGetMediaItemsResponse)
-    com.google.protobuf.MessageOrBuilder {
+        extends
+        // @@protoc_insertion_point(interface_extends:google.photos.library.v1.BatchGetMediaItemsResponse)
+        com.google.protobuf.MessageOrBuilder {
 
-  /**
-   *
-   *
-   * <pre>
-   * [Output only] List of media items retrieved.
-   * Note that even if the call to BatchGetMediaItems succeeds, there may have
-   * been failures for some media items in the batch. These failures are
-   * indicated in each
-   * [MediaItemResult.status][google.photos.library.v1.MediaItemResult.status].
-   * </pre>
-   *
-   * <code>repeated .google.photos.library.v1.MediaItemResult media_item_results = 1;</code>
-   */
-  java.util.List<com.google.photos.library.v1.proto.MediaItemResult> getMediaItemResultsList();
-  /**
-   *
-   *
-   * <pre>
-   * [Output only] List of media items retrieved.
-   * Note that even if the call to BatchGetMediaItems succeeds, there may have
-   * been failures for some media items in the batch. These failures are
-   * indicated in each
-   * [MediaItemResult.status][google.photos.library.v1.MediaItemResult.status].
-   * </pre>
-   *
-   * <code>repeated .google.photos.library.v1.MediaItemResult media_item_results = 1;</code>
-   */
-  com.google.photos.library.v1.proto.MediaItemResult getMediaItemResults(int index);
-  /**
-   *
-   *
-   * <pre>
-   * [Output only] List of media items retrieved.
-   * Note that even if the call to BatchGetMediaItems succeeds, there may have
-   * been failures for some media items in the batch. These failures are
-   * indicated in each
-   * [MediaItemResult.status][google.photos.library.v1.MediaItemResult.status].
-   * </pre>
-   *
-   * <code>repeated .google.photos.library.v1.MediaItemResult media_item_results = 1;</code>
-   */
-  int getMediaItemResultsCount();
-  /**
-   *
-   *
-   * <pre>
-   * [Output only] List of media items retrieved.
-   * Note that even if the call to BatchGetMediaItems succeeds, there may have
-   * been failures for some media items in the batch. These failures are
-   * indicated in each
-   * [MediaItemResult.status][google.photos.library.v1.MediaItemResult.status].
-   * </pre>
-   *
-   * <code>repeated .google.photos.library.v1.MediaItemResult media_item_results = 1;</code>
-   */
-  java.util.List<? extends com.google.photos.library.v1.proto.MediaItemResultOrBuilder>
-      getMediaItemResultsOrBuilderList();
-  /**
-   *
-   *
-   * <pre>
-   * [Output only] List of media items retrieved.
-   * Note that even if the call to BatchGetMediaItems succeeds, there may have
-   * been failures for some media items in the batch. These failures are
-   * indicated in each
-   * [MediaItemResult.status][google.photos.library.v1.MediaItemResult.status].
-   * </pre>
-   *
-   * <code>repeated .google.photos.library.v1.MediaItemResult media_item_results = 1;</code>
-   */
-  com.google.photos.library.v1.proto.MediaItemResultOrBuilder getMediaItemResultsOrBuilder(
-      int index);
+    /**
+     * <pre>
+     * [Output only] List of media items retrieved.
+     * Note that even if the call to BatchGetMediaItems succeeds, there may have
+     * been failures for some media items in the batch. These failures are
+     * indicated in each
+     * [MediaItemResult.status][google.photos.library.v1.MediaItemResult.status].
+     * </pre>
+     *
+     * <code>repeated .google.photos.library.v1.MediaItemResult media_item_results = 1;</code>
+     */
+    java.util.List<com.google.photos.library.v1.proto.MediaItemResult> getMediaItemResultsList();
+
+    /**
+     * <pre>
+     * [Output only] List of media items retrieved.
+     * Note that even if the call to BatchGetMediaItems succeeds, there may have
+     * been failures for some media items in the batch. These failures are
+     * indicated in each
+     * [MediaItemResult.status][google.photos.library.v1.MediaItemResult.status].
+     * </pre>
+     *
+     * <code>repeated .google.photos.library.v1.MediaItemResult media_item_results = 1;</code>
+     */
+    com.google.photos.library.v1.proto.MediaItemResult getMediaItemResults(int index);
+
+    /**
+     * <pre>
+     * [Output only] List of media items retrieved.
+     * Note that even if the call to BatchGetMediaItems succeeds, there may have
+     * been failures for some media items in the batch. These failures are
+     * indicated in each
+     * [MediaItemResult.status][google.photos.library.v1.MediaItemResult.status].
+     * </pre>
+     *
+     * <code>repeated .google.photos.library.v1.MediaItemResult media_item_results = 1;</code>
+     */
+    int getMediaItemResultsCount();
+
+    /**
+     * <pre>
+     * [Output only] List of media items retrieved.
+     * Note that even if the call to BatchGetMediaItems succeeds, there may have
+     * been failures for some media items in the batch. These failures are
+     * indicated in each
+     * [MediaItemResult.status][google.photos.library.v1.MediaItemResult.status].
+     * </pre>
+     *
+     * <code>repeated .google.photos.library.v1.MediaItemResult media_item_results = 1;</code>
+     */
+    java.util.List<? extends com.google.photos.library.v1.proto.MediaItemResultOrBuilder>
+    getMediaItemResultsOrBuilderList();
+
+    /**
+     * <pre>
+     * [Output only] List of media items retrieved.
+     * Note that even if the call to BatchGetMediaItems succeeds, there may have
+     * been failures for some media items in the batch. These failures are
+     * indicated in each
+     * [MediaItemResult.status][google.photos.library.v1.MediaItemResult.status].
+     * </pre>
+     *
+     * <code>repeated .google.photos.library.v1.MediaItemResult media_item_results = 1;</code>
+     */
+    com.google.photos.library.v1.proto.MediaItemResultOrBuilder getMediaItemResultsOrBuilder(
+            int index);
 }

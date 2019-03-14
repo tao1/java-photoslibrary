@@ -4,56 +4,51 @@
 package com.google.photos.library.v1.proto;
 
 public interface BatchGetMediaItemsRequestOrBuilder
-    extends
-    // @@protoc_insertion_point(interface_extends:google.photos.library.v1.BatchGetMediaItemsRequest)
-    com.google.protobuf.MessageOrBuilder {
+        extends
+        // @@protoc_insertion_point(interface_extends:google.photos.library.v1.BatchGetMediaItemsRequest)
+        com.google.protobuf.MessageOrBuilder {
 
-  /**
-   *
-   *
-   * <pre>
-   * Identifiers of the media items to be requested.
-   * Must not contain repeated identifiers and cannot be empty. The maximum
-   * number of media items that can be retrieved in one call is 50.
-   * </pre>
-   *
-   * <code>repeated string media_item_ids = 1;</code>
-   */
-  java.util.List<java.lang.String> getMediaItemIdsList();
-  /**
-   *
-   *
-   * <pre>
-   * Identifiers of the media items to be requested.
-   * Must not contain repeated identifiers and cannot be empty. The maximum
-   * number of media items that can be retrieved in one call is 50.
-   * </pre>
-   *
-   * <code>repeated string media_item_ids = 1;</code>
-   */
-  int getMediaItemIdsCount();
-  /**
-   *
-   *
-   * <pre>
-   * Identifiers of the media items to be requested.
-   * Must not contain repeated identifiers and cannot be empty. The maximum
-   * number of media items that can be retrieved in one call is 50.
-   * </pre>
-   *
-   * <code>repeated string media_item_ids = 1;</code>
-   */
-  java.lang.String getMediaItemIds(int index);
-  /**
-   *
-   *
-   * <pre>
-   * Identifiers of the media items to be requested.
-   * Must not contain repeated identifiers and cannot be empty. The maximum
-   * number of media items that can be retrieved in one call is 50.
-   * </pre>
-   *
-   * <code>repeated string media_item_ids = 1;</code>
-   */
-  com.google.protobuf.ByteString getMediaItemIdsBytes(int index);
+    /**
+     * <pre>
+     * Identifiers of the media items to be requested.
+     * Must not contain repeated identifiers and cannot be empty. The maximum
+     * number of media items that can be retrieved in one call is 50.
+     * </pre>
+     *
+     * <code>repeated string media_item_ids = 1;</code>
+     */
+    java.util.List<java.lang.String> getMediaItemIdsList();
+
+    /**
+     * <pre>
+     * Identifiers of the media items to be requested.
+     * Must not contain repeated identifiers and cannot be empty. The maximum
+     * number of media items that can be retrieved in one call is 50.
+     * </pre>
+     *
+     * <code>repeated string media_item_ids = 1;</code>
+     */
+    int getMediaItemIdsCount();
+
+    /**
+     * <pre>
+     * Identifiers of the media items to be requested.
+     * Must not contain repeated identifiers and cannot be empty. The maximum
+     * number of media items that can be retrieved in one call is 50.
+     * </pre>
+     *
+     * <code>repeated string media_item_ids = 1;</code>
+     */
+    java.lang.String getMediaItemIds(int index);
+
+    /**
+     * <pre>
+     * Identifiers of the media items to be requested.
+     * Must not contain repeated identifiers and cannot be empty. The maximum
+     * number of media items that can be retrieved in one call is 50.
+     * </pre>
+     *
+     * <code>repeated string media_item_ids = 1;</code>
+     */
+    com.google.protobuf.ByteString getMediaItemIdsBytes(int index);
 }

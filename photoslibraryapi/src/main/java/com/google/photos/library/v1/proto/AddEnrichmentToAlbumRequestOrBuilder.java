@@ -4,90 +4,79 @@
 package com.google.photos.library.v1.proto;
 
 public interface AddEnrichmentToAlbumRequestOrBuilder
-    extends
-    // @@protoc_insertion_point(interface_extends:google.photos.library.v1.AddEnrichmentToAlbumRequest)
-    com.google.protobuf.MessageOrBuilder {
+        extends
+        // @@protoc_insertion_point(interface_extends:google.photos.library.v1.AddEnrichmentToAlbumRequest)
+        com.google.protobuf.MessageOrBuilder {
 
-  /**
-   *
-   *
-   * <pre>
-   * Identifier of the album where the enrichment is to be added.
-   * </pre>
-   *
-   * <code>string album_id = 1;</code>
-   */
-  java.lang.String getAlbumId();
-  /**
-   *
-   *
-   * <pre>
-   * Identifier of the album where the enrichment is to be added.
-   * </pre>
-   *
-   * <code>string album_id = 1;</code>
-   */
-  com.google.protobuf.ByteString getAlbumIdBytes();
+    /**
+     * <pre>
+     * Identifier of the album where the enrichment is to be added.
+     * </pre>
+     *
+     * <code>string album_id = 1;</code>
+     */
+    java.lang.String getAlbumId();
 
-  /**
-   *
-   *
-   * <pre>
-   * The enrichment to be added.
-   * </pre>
-   *
-   * <code>.google.photos.library.v1.NewEnrichmentItem new_enrichment_item = 2;</code>
-   */
-  boolean hasNewEnrichmentItem();
-  /**
-   *
-   *
-   * <pre>
-   * The enrichment to be added.
-   * </pre>
-   *
-   * <code>.google.photos.library.v1.NewEnrichmentItem new_enrichment_item = 2;</code>
-   */
-  com.google.photos.library.v1.proto.NewEnrichmentItem getNewEnrichmentItem();
-  /**
-   *
-   *
-   * <pre>
-   * The enrichment to be added.
-   * </pre>
-   *
-   * <code>.google.photos.library.v1.NewEnrichmentItem new_enrichment_item = 2;</code>
-   */
-  com.google.photos.library.v1.proto.NewEnrichmentItemOrBuilder getNewEnrichmentItemOrBuilder();
+    /**
+     * <pre>
+     * Identifier of the album where the enrichment is to be added.
+     * </pre>
+     *
+     * <code>string album_id = 1;</code>
+     */
+    com.google.protobuf.ByteString getAlbumIdBytes();
 
-  /**
-   *
-   *
-   * <pre>
-   * The position in the album where the enrichment is to be inserted.
-   * </pre>
-   *
-   * <code>.google.photos.library.v1.AlbumPosition album_position = 3;</code>
-   */
-  boolean hasAlbumPosition();
-  /**
-   *
-   *
-   * <pre>
-   * The position in the album where the enrichment is to be inserted.
-   * </pre>
-   *
-   * <code>.google.photos.library.v1.AlbumPosition album_position = 3;</code>
-   */
-  com.google.photos.library.v1.proto.AlbumPosition getAlbumPosition();
-  /**
-   *
-   *
-   * <pre>
-   * The position in the album where the enrichment is to be inserted.
-   * </pre>
-   *
-   * <code>.google.photos.library.v1.AlbumPosition album_position = 3;</code>
-   */
-  com.google.photos.library.v1.proto.AlbumPositionOrBuilder getAlbumPositionOrBuilder();
+    /**
+     * <pre>
+     * The enrichment to be added.
+     * </pre>
+     *
+     * <code>.google.photos.library.v1.NewEnrichmentItem new_enrichment_item = 2;</code>
+     */
+    boolean hasNewEnrichmentItem();
+
+    /**
+     * <pre>
+     * The enrichment to be added.
+     * </pre>
+     *
+     * <code>.google.photos.library.v1.NewEnrichmentItem new_enrichment_item = 2;</code>
+     */
+    com.google.photos.library.v1.proto.NewEnrichmentItem getNewEnrichmentItem();
+
+    /**
+     * <pre>
+     * The enrichment to be added.
+     * </pre>
+     *
+     * <code>.google.photos.library.v1.NewEnrichmentItem new_enrichment_item = 2;</code>
+     */
+    com.google.photos.library.v1.proto.NewEnrichmentItemOrBuilder getNewEnrichmentItemOrBuilder();
+
+    /**
+     * <pre>
+     * The position in the album where the enrichment is to be inserted.
+     * </pre>
+     *
+     * <code>.google.photos.library.v1.AlbumPosition album_position = 3;</code>
+     */
+    boolean hasAlbumPosition();
+
+    /**
+     * <pre>
+     * The position in the album where the enrichment is to be inserted.
+     * </pre>
+     *
+     * <code>.google.photos.library.v1.AlbumPosition album_position = 3;</code>
+     */
+    com.google.photos.library.v1.proto.AlbumPosition getAlbumPosition();
+
+    /**
+     * <pre>
+     * The position in the album where the enrichment is to be inserted.
+     * </pre>
+     *
+     * <code>.google.photos.library.v1.AlbumPosition album_position = 3;</code>
+     */
+    com.google.photos.library.v1.proto.AlbumPositionOrBuilder getAlbumPositionOrBuilder();
 }

@@ -18,11 +18,11 @@ package com.google.photos.library.v1.upload;
 
 final class ExceptionStrings {
 
-  static final String INVALID_UPLOAD_RESULT =
-      "The upload was completed but failed to finalize or get the result.";
-  static final String INVALID_UPLOAD_STATUS = "Invalid upload status received.";
-  static final String UPLOAD_URL_REJECTED =
-      "The upload url is either finalized or rejected by the server.";
-  static final String UPLOAD_TIMED_OUT = "The upload has timed out.";
-  static final String UNKNOWN_ERROR = "The upload encountered an unknown error.";
+    static final String INVALID_UPLOAD_RESULT =
+            "The upload was completed but failed to finalize or get the result.";
+    static final String INVALID_UPLOAD_STATUS = "Invalid upload status received.";
+    static final String UPLOAD_URL_REJECTED =
+            "The upload url is either finalized or rejected by the server.";
+    static final String UPLOAD_TIMED_OUT = "The upload has timed out.";
+    static final String UNKNOWN_ERROR = "The upload encountered an unknown error.";
 }

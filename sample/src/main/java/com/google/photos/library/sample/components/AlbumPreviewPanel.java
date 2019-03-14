@@ -17,17 +17,20 @@
 package com.google.photos.library.sample.components;
 
 import java.awt.BorderLayout;
+
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-/** Represents an album preview, which contains the album thumbnail and title. */
+/**
+ * Represents an album preview, which contains the album thumbnail and title.
+ */
 public final class AlbumPreviewPanel extends JPanel {
-  private static final int HGAP = 0;
-  private static final int VGAP = 6;
+    private static final int HGAP = 0;
+    private static final int VGAP = 6;
 
-  public AlbumPreviewPanel(JLabel thumbnail, JLabel title) {
-    setLayout(new BorderLayout(HGAP, VGAP));
-    add(thumbnail, BorderLayout.CENTER);
-    add(title, BorderLayout.PAGE_END);
-  }
+    public AlbumPreviewPanel(JLabel thumbnail, JLabel title) {
+        setLayout(new BorderLayout(HGAP, VGAP));
+        add(thumbnail, BorderLayout.CENTER);
+        add(title, BorderLayout.PAGE_END);
+    }
 }

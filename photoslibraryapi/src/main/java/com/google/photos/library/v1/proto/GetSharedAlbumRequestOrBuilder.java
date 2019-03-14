@@ -4,28 +4,25 @@
 package com.google.photos.library.v1.proto;
 
 public interface GetSharedAlbumRequestOrBuilder
-    extends
-    // @@protoc_insertion_point(interface_extends:google.photos.library.v1.GetSharedAlbumRequest)
-    com.google.protobuf.MessageOrBuilder {
+        extends
+        // @@protoc_insertion_point(interface_extends:google.photos.library.v1.GetSharedAlbumRequest)
+        com.google.protobuf.MessageOrBuilder {
 
-  /**
-   *
-   *
-   * <pre>
-   * Share token of the album to be requested.
-   * </pre>
-   *
-   * <code>string share_token = 1;</code>
-   */
-  java.lang.String getShareToken();
-  /**
-   *
-   *
-   * <pre>
-   * Share token of the album to be requested.
-   * </pre>
-   *
-   * <code>string share_token = 1;</code>
-   */
-  com.google.protobuf.ByteString getShareTokenBytes();
+    /**
+     * <pre>
+     * Share token of the album to be requested.
+     * </pre>
+     *
+     * <code>string share_token = 1;</code>
+     */
+    java.lang.String getShareToken();
+
+    /**
+     * <pre>
+     * Share token of the album to be requested.
+     * </pre>
+     *
+     * <code>string share_token = 1;</code>
+     */
+    com.google.protobuf.ByteString getShareTokenBytes();
 }

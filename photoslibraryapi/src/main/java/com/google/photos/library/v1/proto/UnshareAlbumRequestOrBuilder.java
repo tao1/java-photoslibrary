@@ -4,30 +4,27 @@
 package com.google.photos.library.v1.proto;
 
 public interface UnshareAlbumRequestOrBuilder
-    extends
-    // @@protoc_insertion_point(interface_extends:google.photos.library.v1.UnshareAlbumRequest)
-    com.google.protobuf.MessageOrBuilder {
+        extends
+        // @@protoc_insertion_point(interface_extends:google.photos.library.v1.UnshareAlbumRequest)
+        com.google.protobuf.MessageOrBuilder {
 
-  /**
-   *
-   *
-   * <pre>
-   * Identifier of the album to be unshared. This album id must belong to an
-   * album created by the developer.
-   * </pre>
-   *
-   * <code>string album_id = 1;</code>
-   */
-  java.lang.String getAlbumId();
-  /**
-   *
-   *
-   * <pre>
-   * Identifier of the album to be unshared. This album id must belong to an
-   * album created by the developer.
-   * </pre>
-   *
-   * <code>string album_id = 1;</code>
-   */
-  com.google.protobuf.ByteString getAlbumIdBytes();
+    /**
+     * <pre>
+     * Identifier of the album to be unshared. This album id must belong to an
+     * album created by the developer.
+     * </pre>
+     *
+     * <code>string album_id = 1;</code>
+     */
+    java.lang.String getAlbumId();
+
+    /**
+     * <pre>
+     * Identifier of the album to be unshared. This album id must belong to an
+     * album created by the developer.
+     * </pre>
+     *
+     * <code>string album_id = 1;</code>
+     */
+    com.google.protobuf.ByteString getAlbumIdBytes();
 }

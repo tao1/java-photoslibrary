@@ -4,38 +4,34 @@
 package com.google.photos.library.v1.proto;
 
 public interface JoinSharedAlbumResponseOrBuilder
-    extends
-    // @@protoc_insertion_point(interface_extends:google.photos.library.v1.JoinSharedAlbumResponse)
-    com.google.protobuf.MessageOrBuilder {
+        extends
+        // @@protoc_insertion_point(interface_extends:google.photos.library.v1.JoinSharedAlbumResponse)
+        com.google.protobuf.MessageOrBuilder {
 
-  /**
-   *
-   *
-   * <pre>
-   * Shared album that the user has joined.
-   * </pre>
-   *
-   * <code>.google.photos.library.v1.Album album = 1;</code>
-   */
-  boolean hasAlbum();
-  /**
-   *
-   *
-   * <pre>
-   * Shared album that the user has joined.
-   * </pre>
-   *
-   * <code>.google.photos.library.v1.Album album = 1;</code>
-   */
-  com.google.photos.library.v1.proto.Album getAlbum();
-  /**
-   *
-   *
-   * <pre>
-   * Shared album that the user has joined.
-   * </pre>
-   *
-   * <code>.google.photos.library.v1.Album album = 1;</code>
-   */
-  com.google.photos.library.v1.proto.AlbumOrBuilder getAlbumOrBuilder();
+    /**
+     * <pre>
+     * Shared album that the user has joined.
+     * </pre>
+     *
+     * <code>.google.photos.library.v1.Album album = 1;</code>
+     */
+    boolean hasAlbum();
+
+    /**
+     * <pre>
+     * Shared album that the user has joined.
+     * </pre>
+     *
+     * <code>.google.photos.library.v1.Album album = 1;</code>
+     */
+    com.google.photos.library.v1.proto.Album getAlbum();
+
+    /**
+     * <pre>
+     * Shared album that the user has joined.
+     * </pre>
+     *
+     * <code>.google.photos.library.v1.Album album = 1;</code>
+     */
+    com.google.photos.library.v1.proto.AlbumOrBuilder getAlbumOrBuilder();
 }

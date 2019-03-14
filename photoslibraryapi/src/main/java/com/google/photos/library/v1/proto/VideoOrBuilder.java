@@ -4,81 +4,70 @@
 package com.google.photos.library.v1.proto;
 
 public interface VideoOrBuilder
-    extends
-    // @@protoc_insertion_point(interface_extends:google.photos.library.v1.Video)
-    com.google.protobuf.MessageOrBuilder {
+        extends
+        // @@protoc_insertion_point(interface_extends:google.photos.library.v1.Video)
+        com.google.protobuf.MessageOrBuilder {
 
-  /**
-   *
-   *
-   * <pre>
-   * Brand of the camera with which the video was taken.
-   * </pre>
-   *
-   * <code>string camera_make = 1;</code>
-   */
-  java.lang.String getCameraMake();
-  /**
-   *
-   *
-   * <pre>
-   * Brand of the camera with which the video was taken.
-   * </pre>
-   *
-   * <code>string camera_make = 1;</code>
-   */
-  com.google.protobuf.ByteString getCameraMakeBytes();
+    /**
+     * <pre>
+     * Brand of the camera with which the video was taken.
+     * </pre>
+     *
+     * <code>string camera_make = 1;</code>
+     */
+    java.lang.String getCameraMake();
 
-  /**
-   *
-   *
-   * <pre>
-   * Model of the camera with which the video was taken.
-   * </pre>
-   *
-   * <code>string camera_model = 2;</code>
-   */
-  java.lang.String getCameraModel();
-  /**
-   *
-   *
-   * <pre>
-   * Model of the camera with which the video was taken.
-   * </pre>
-   *
-   * <code>string camera_model = 2;</code>
-   */
-  com.google.protobuf.ByteString getCameraModelBytes();
+    /**
+     * <pre>
+     * Brand of the camera with which the video was taken.
+     * </pre>
+     *
+     * <code>string camera_make = 1;</code>
+     */
+    com.google.protobuf.ByteString getCameraMakeBytes();
 
-  /**
-   *
-   *
-   * <pre>
-   * Frame rate of the video.
-   * </pre>
-   *
-   * <code>double fps = 3;</code>
-   */
-  double getFps();
+    /**
+     * <pre>
+     * Model of the camera with which the video was taken.
+     * </pre>
+     *
+     * <code>string camera_model = 2;</code>
+     */
+    java.lang.String getCameraModel();
 
-  /**
-   *
-   *
-   * <pre>
-   * Processing status of the video.
-   * </pre>
-   *
-   * <code>.google.photos.library.v1.VideoProcessingStatus status = 4;</code>
-   */
-  int getStatusValue();
-  /**
-   *
-   *
-   * <pre>
-   * Processing status of the video.
-   * </pre>
-   *
-   * <code>.google.photos.library.v1.VideoProcessingStatus status = 4;</code>
-   */
-  com.google.photos.library.v1.proto.VideoProcessingStatus getStatus();
+    /**
+     * <pre>
+     * Model of the camera with which the video was taken.
+     * </pre>
+     *
+     * <code>string camera_model = 2;</code>
+     */
+    com.google.protobuf.ByteString getCameraModelBytes();
+
+    /**
+     * <pre>
+     * Frame rate of the video.
+     * </pre>
+     *
+     * <code>double fps = 3;</code>
+     */
+    double getFps();
+
+    /**
+     * <pre>
+     * Processing status of the video.
+     * </pre>
+     *
+     * <code>.google.photos.library.v1.VideoProcessingStatus status = 4;</code>
+     */
+    int getStatusValue();
+
+    /**
+     * <pre>
+     * Processing status of the video.
+     * </pre>
+     *
+     * <code>.google.photos.library.v1.VideoProcessingStatus status = 4;</code>
+     */
+    com.google.photos.library.v1.proto.VideoProcessingStatus getStatus();
 }

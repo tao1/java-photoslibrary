@@ -46,267 +46,269 @@ import com.google.photos.library.v1.proto.ShareAlbumResponse;
 import com.google.photos.library.v1.proto.UnshareAlbumRequest;
 import com.google.photos.library.v1.proto.UnshareAlbumResponse;
 import com.google.protobuf.GeneratedMessageV3;
-import io.grpc.stub.StreamObserver;
+
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
+import io.grpc.stub.StreamObserver;
+
 @javax.annotation.Generated("by GAPIC")
 @BetaApi
 public class MockPhotosLibraryImpl extends PhotosLibraryImplBase {
-  private ArrayList<GeneratedMessageV3> requests;
-  private Queue<Object> responses;
+    private ArrayList<GeneratedMessageV3> requests;
+    private Queue<Object> responses;
 
-  public MockPhotosLibraryImpl() {
-    requests = new ArrayList<>();
-    responses = new LinkedList<>();
-  }
-
-  public List<GeneratedMessageV3> getRequests() {
-    return requests;
-  }
-
-  public void addResponse(GeneratedMessageV3 response) {
-    responses.add(response);
-  }
-
-  public void setResponses(List<GeneratedMessageV3> responses) {
-    this.responses = new LinkedList<Object>(responses);
-  }
-
-  public void addException(Exception exception) {
-    responses.add(exception);
-  }
-
-  public void reset() {
-    requests = new ArrayList<>();
-    responses = new LinkedList<>();
-  }
-
-  @Override
-  public void createAlbum(CreateAlbumRequest request, StreamObserver<Album> responseObserver) {
-    Object response = responses.remove();
-    if (response instanceof Album) {
-      requests.add(request);
-      responseObserver.onNext((Album) response);
-      responseObserver.onCompleted();
-    } else if (response instanceof Exception) {
-      responseObserver.onError((Exception) response);
-    } else {
-      responseObserver.onError(new IllegalArgumentException("Unrecognized response type"));
+    public MockPhotosLibraryImpl() {
+        requests = new ArrayList<>();
+        responses = new LinkedList<>();
     }
-  }
 
-  @Override
-  public void batchCreateMediaItems(
-      BatchCreateMediaItemsRequest request,
-      StreamObserver<BatchCreateMediaItemsResponse> responseObserver) {
-    Object response = responses.remove();
-    if (response instanceof BatchCreateMediaItemsResponse) {
-      requests.add(request);
-      responseObserver.onNext((BatchCreateMediaItemsResponse) response);
-      responseObserver.onCompleted();
-    } else if (response instanceof Exception) {
-      responseObserver.onError((Exception) response);
-    } else {
-      responseObserver.onError(new IllegalArgumentException("Unrecognized response type"));
+    public List<GeneratedMessageV3> getRequests() {
+        return requests;
     }
-  }
 
-  @Override
-  public void searchMediaItems(
-      SearchMediaItemsRequest request, StreamObserver<SearchMediaItemsResponse> responseObserver) {
-    Object response = responses.remove();
-    if (response instanceof SearchMediaItemsResponse) {
-      requests.add(request);
-      responseObserver.onNext((SearchMediaItemsResponse) response);
-      responseObserver.onCompleted();
-    } else if (response instanceof Exception) {
-      responseObserver.onError((Exception) response);
-    } else {
-      responseObserver.onError(new IllegalArgumentException("Unrecognized response type"));
+    public void addResponse(GeneratedMessageV3 response) {
+        responses.add(response);
     }
-  }
 
-  @Override
-  public void listMediaItems(
-      ListMediaItemsRequest request, StreamObserver<ListMediaItemsResponse> responseObserver) {
-    Object response = responses.remove();
-    if (response instanceof ListMediaItemsResponse) {
-      requests.add(request);
-      responseObserver.onNext((ListMediaItemsResponse) response);
-      responseObserver.onCompleted();
-    } else if (response instanceof Exception) {
-      responseObserver.onError((Exception) response);
-    } else {
-      responseObserver.onError(new IllegalArgumentException("Unrecognized response type"));
+    public void setResponses(List<GeneratedMessageV3> responses) {
+        this.responses = new LinkedList<Object>(responses);
     }
-  }
 
-  @Override
-  public void getMediaItem(
-      GetMediaItemRequest request, StreamObserver<MediaItem> responseObserver) {
-    Object response = responses.remove();
-    if (response instanceof MediaItem) {
-      requests.add(request);
-      responseObserver.onNext((MediaItem) response);
-      responseObserver.onCompleted();
-    } else if (response instanceof Exception) {
-      responseObserver.onError((Exception) response);
-    } else {
-      responseObserver.onError(new IllegalArgumentException("Unrecognized response type"));
+    public void addException(Exception exception) {
+        responses.add(exception);
     }
-  }
 
-  @Override
-  public void batchGetMediaItems(
-      BatchGetMediaItemsRequest request,
-      StreamObserver<BatchGetMediaItemsResponse> responseObserver) {
-    Object response = responses.remove();
-    if (response instanceof BatchGetMediaItemsResponse) {
-      requests.add(request);
-      responseObserver.onNext((BatchGetMediaItemsResponse) response);
-      responseObserver.onCompleted();
-    } else if (response instanceof Exception) {
-      responseObserver.onError((Exception) response);
-    } else {
-      responseObserver.onError(new IllegalArgumentException("Unrecognized response type"));
+    public void reset() {
+        requests = new ArrayList<>();
+        responses = new LinkedList<>();
     }
-  }
 
-  @Override
-  public void listAlbums(
-      ListAlbumsRequest request, StreamObserver<ListAlbumsResponse> responseObserver) {
-    Object response = responses.remove();
-    if (response instanceof ListAlbumsResponse) {
-      requests.add(request);
-      responseObserver.onNext((ListAlbumsResponse) response);
-      responseObserver.onCompleted();
-    } else if (response instanceof Exception) {
-      responseObserver.onError((Exception) response);
-    } else {
-      responseObserver.onError(new IllegalArgumentException("Unrecognized response type"));
+    @Override
+    public void createAlbum(CreateAlbumRequest request, StreamObserver<Album> responseObserver) {
+        Object response = responses.remove();
+        if (response instanceof Album) {
+            requests.add(request);
+            responseObserver.onNext((Album) response);
+            responseObserver.onCompleted();
+        } else if (response instanceof Exception) {
+            responseObserver.onError((Exception) response);
+        } else {
+            responseObserver.onError(new IllegalArgumentException("Unrecognized response type"));
+        }
     }
-  }
 
-  @Override
-  public void getAlbum(GetAlbumRequest request, StreamObserver<Album> responseObserver) {
-    Object response = responses.remove();
-    if (response instanceof Album) {
-      requests.add(request);
-      responseObserver.onNext((Album) response);
-      responseObserver.onCompleted();
-    } else if (response instanceof Exception) {
-      responseObserver.onError((Exception) response);
-    } else {
-      responseObserver.onError(new IllegalArgumentException("Unrecognized response type"));
+    @Override
+    public void batchCreateMediaItems(
+            BatchCreateMediaItemsRequest request,
+            StreamObserver<BatchCreateMediaItemsResponse> responseObserver) {
+        Object response = responses.remove();
+        if (response instanceof BatchCreateMediaItemsResponse) {
+            requests.add(request);
+            responseObserver.onNext((BatchCreateMediaItemsResponse) response);
+            responseObserver.onCompleted();
+        } else if (response instanceof Exception) {
+            responseObserver.onError((Exception) response);
+        } else {
+            responseObserver.onError(new IllegalArgumentException("Unrecognized response type"));
+        }
     }
-  }
 
-  @Override
-  public void getSharedAlbum(
-      GetSharedAlbumRequest request, StreamObserver<Album> responseObserver) {
-    Object response = responses.remove();
-    if (response instanceof Album) {
-      requests.add(request);
-      responseObserver.onNext((Album) response);
-      responseObserver.onCompleted();
-    } else if (response instanceof Exception) {
-      responseObserver.onError((Exception) response);
-    } else {
-      responseObserver.onError(new IllegalArgumentException("Unrecognized response type"));
+    @Override
+    public void searchMediaItems(
+            SearchMediaItemsRequest request, StreamObserver<SearchMediaItemsResponse> responseObserver) {
+        Object response = responses.remove();
+        if (response instanceof SearchMediaItemsResponse) {
+            requests.add(request);
+            responseObserver.onNext((SearchMediaItemsResponse) response);
+            responseObserver.onCompleted();
+        } else if (response instanceof Exception) {
+            responseObserver.onError((Exception) response);
+        } else {
+            responseObserver.onError(new IllegalArgumentException("Unrecognized response type"));
+        }
     }
-  }
 
-  @Override
-  public void addEnrichmentToAlbum(
-      AddEnrichmentToAlbumRequest request,
-      StreamObserver<AddEnrichmentToAlbumResponse> responseObserver) {
-    Object response = responses.remove();
-    if (response instanceof AddEnrichmentToAlbumResponse) {
-      requests.add(request);
-      responseObserver.onNext((AddEnrichmentToAlbumResponse) response);
-      responseObserver.onCompleted();
-    } else if (response instanceof Exception) {
-      responseObserver.onError((Exception) response);
-    } else {
-      responseObserver.onError(new IllegalArgumentException("Unrecognized response type"));
+    @Override
+    public void listMediaItems(
+            ListMediaItemsRequest request, StreamObserver<ListMediaItemsResponse> responseObserver) {
+        Object response = responses.remove();
+        if (response instanceof ListMediaItemsResponse) {
+            requests.add(request);
+            responseObserver.onNext((ListMediaItemsResponse) response);
+            responseObserver.onCompleted();
+        } else if (response instanceof Exception) {
+            responseObserver.onError((Exception) response);
+        } else {
+            responseObserver.onError(new IllegalArgumentException("Unrecognized response type"));
+        }
     }
-  }
 
-  @Override
-  public void joinSharedAlbum(
-      JoinSharedAlbumRequest request, StreamObserver<JoinSharedAlbumResponse> responseObserver) {
-    Object response = responses.remove();
-    if (response instanceof JoinSharedAlbumResponse) {
-      requests.add(request);
-      responseObserver.onNext((JoinSharedAlbumResponse) response);
-      responseObserver.onCompleted();
-    } else if (response instanceof Exception) {
-      responseObserver.onError((Exception) response);
-    } else {
-      responseObserver.onError(new IllegalArgumentException("Unrecognized response type"));
+    @Override
+    public void getMediaItem(
+            GetMediaItemRequest request, StreamObserver<MediaItem> responseObserver) {
+        Object response = responses.remove();
+        if (response instanceof MediaItem) {
+            requests.add(request);
+            responseObserver.onNext((MediaItem) response);
+            responseObserver.onCompleted();
+        } else if (response instanceof Exception) {
+            responseObserver.onError((Exception) response);
+        } else {
+            responseObserver.onError(new IllegalArgumentException("Unrecognized response type"));
+        }
     }
-  }
 
-  @Override
-  public void leaveSharedAlbum(
-      LeaveSharedAlbumRequest request, StreamObserver<LeaveSharedAlbumResponse> responseObserver) {
-    Object response = responses.remove();
-    if (response instanceof LeaveSharedAlbumResponse) {
-      requests.add(request);
-      responseObserver.onNext((LeaveSharedAlbumResponse) response);
-      responseObserver.onCompleted();
-    } else if (response instanceof Exception) {
-      responseObserver.onError((Exception) response);
-    } else {
-      responseObserver.onError(new IllegalArgumentException("Unrecognized response type"));
+    @Override
+    public void batchGetMediaItems(
+            BatchGetMediaItemsRequest request,
+            StreamObserver<BatchGetMediaItemsResponse> responseObserver) {
+        Object response = responses.remove();
+        if (response instanceof BatchGetMediaItemsResponse) {
+            requests.add(request);
+            responseObserver.onNext((BatchGetMediaItemsResponse) response);
+            responseObserver.onCompleted();
+        } else if (response instanceof Exception) {
+            responseObserver.onError((Exception) response);
+        } else {
+            responseObserver.onError(new IllegalArgumentException("Unrecognized response type"));
+        }
     }
-  }
 
-  @Override
-  public void shareAlbum(
-      ShareAlbumRequest request, StreamObserver<ShareAlbumResponse> responseObserver) {
-    Object response = responses.remove();
-    if (response instanceof ShareAlbumResponse) {
-      requests.add(request);
-      responseObserver.onNext((ShareAlbumResponse) response);
-      responseObserver.onCompleted();
-    } else if (response instanceof Exception) {
-      responseObserver.onError((Exception) response);
-    } else {
-      responseObserver.onError(new IllegalArgumentException("Unrecognized response type"));
+    @Override
+    public void listAlbums(
+            ListAlbumsRequest request, StreamObserver<ListAlbumsResponse> responseObserver) {
+        Object response = responses.remove();
+        if (response instanceof ListAlbumsResponse) {
+            requests.add(request);
+            responseObserver.onNext((ListAlbumsResponse) response);
+            responseObserver.onCompleted();
+        } else if (response instanceof Exception) {
+            responseObserver.onError((Exception) response);
+        } else {
+            responseObserver.onError(new IllegalArgumentException("Unrecognized response type"));
+        }
     }
-  }
 
-  @Override
-  public void listSharedAlbums(
-      ListSharedAlbumsRequest request, StreamObserver<ListSharedAlbumsResponse> responseObserver) {
-    Object response = responses.remove();
-    if (response instanceof ListSharedAlbumsResponse) {
-      requests.add(request);
-      responseObserver.onNext((ListSharedAlbumsResponse) response);
-      responseObserver.onCompleted();
-    } else if (response instanceof Exception) {
-      responseObserver.onError((Exception) response);
-    } else {
-      responseObserver.onError(new IllegalArgumentException("Unrecognized response type"));
+    @Override
+    public void getAlbum(GetAlbumRequest request, StreamObserver<Album> responseObserver) {
+        Object response = responses.remove();
+        if (response instanceof Album) {
+            requests.add(request);
+            responseObserver.onNext((Album) response);
+            responseObserver.onCompleted();
+        } else if (response instanceof Exception) {
+            responseObserver.onError((Exception) response);
+        } else {
+            responseObserver.onError(new IllegalArgumentException("Unrecognized response type"));
+        }
     }
-  }
 
-  @Override
-  public void unshareAlbum(
-      UnshareAlbumRequest request, StreamObserver<UnshareAlbumResponse> responseObserver) {
-    Object response = responses.remove();
-    if (response instanceof UnshareAlbumResponse) {
-      requests.add(request);
-      responseObserver.onNext((UnshareAlbumResponse) response);
-      responseObserver.onCompleted();
-    } else if (response instanceof Exception) {
-      responseObserver.onError((Exception) response);
-    } else {
-      responseObserver.onError(new IllegalArgumentException("Unrecognized response type"));
+    @Override
+    public void getSharedAlbum(
+            GetSharedAlbumRequest request, StreamObserver<Album> responseObserver) {
+        Object response = responses.remove();
+        if (response instanceof Album) {
+            requests.add(request);
+            responseObserver.onNext((Album) response);
+            responseObserver.onCompleted();
+        } else if (response instanceof Exception) {
+            responseObserver.onError((Exception) response);
+        } else {
+            responseObserver.onError(new IllegalArgumentException("Unrecognized response type"));
+        }
     }
-  }
+
+    @Override
+    public void addEnrichmentToAlbum(
+            AddEnrichmentToAlbumRequest request,
+            StreamObserver<AddEnrichmentToAlbumResponse> responseObserver) {
+        Object response = responses.remove();
+        if (response instanceof AddEnrichmentToAlbumResponse) {
+            requests.add(request);
+            responseObserver.onNext((AddEnrichmentToAlbumResponse) response);
+            responseObserver.onCompleted();
+        } else if (response instanceof Exception) {
+            responseObserver.onError((Exception) response);
+        } else {
+            responseObserver.onError(new IllegalArgumentException("Unrecognized response type"));
+        }
+    }
+
+    @Override
+    public void joinSharedAlbum(
+            JoinSharedAlbumRequest request, StreamObserver<JoinSharedAlbumResponse> responseObserver) {
+        Object response = responses.remove();
+        if (response instanceof JoinSharedAlbumResponse) {
+            requests.add(request);
+            responseObserver.onNext((JoinSharedAlbumResponse) response);
+            responseObserver.onCompleted();
+        } else if (response instanceof Exception) {
+            responseObserver.onError((Exception) response);
+        } else {
+            responseObserver.onError(new IllegalArgumentException("Unrecognized response type"));
+        }
+    }
+
+    @Override
+    public void leaveSharedAlbum(
+            LeaveSharedAlbumRequest request, StreamObserver<LeaveSharedAlbumResponse> responseObserver) {
+        Object response = responses.remove();
+        if (response instanceof LeaveSharedAlbumResponse) {
+            requests.add(request);
+            responseObserver.onNext((LeaveSharedAlbumResponse) response);
+            responseObserver.onCompleted();
+        } else if (response instanceof Exception) {
+            responseObserver.onError((Exception) response);
+        } else {
+            responseObserver.onError(new IllegalArgumentException("Unrecognized response type"));
+        }
+    }
+
+    @Override
+    public void shareAlbum(
+            ShareAlbumRequest request, StreamObserver<ShareAlbumResponse> responseObserver) {
+        Object response = responses.remove();
+        if (response instanceof ShareAlbumResponse) {
+            requests.add(request);
+            responseObserver.onNext((ShareAlbumResponse) response);
+            responseObserver.onCompleted();
+        } else if (response instanceof Exception) {
+            responseObserver.onError((Exception) response);
+        } else {
+            responseObserver.onError(new IllegalArgumentException("Unrecognized response type"));
+        }
+    }
+
+    @Override
+    public void listSharedAlbums(
+            ListSharedAlbumsRequest request, StreamObserver<ListSharedAlbumsResponse> responseObserver) {
+        Object response = responses.remove();
+        if (response instanceof ListSharedAlbumsResponse) {
+            requests.add(request);
+            responseObserver.onNext((ListSharedAlbumsResponse) response);
+            responseObserver.onCompleted();
+        } else if (response instanceof Exception) {
+            responseObserver.onError((Exception) response);
+        } else {
+            responseObserver.onError(new IllegalArgumentException("Unrecognized response type"));
+        }
+    }
+
+    @Override
+    public void unshareAlbum(
+            UnshareAlbumRequest request, StreamObserver<UnshareAlbumResponse> responseObserver) {
+        Object response = responses.remove();
+        if (response instanceof UnshareAlbumResponse) {
+            requests.add(request);
+            responseObserver.onNext((UnshareAlbumResponse) response);
+            responseObserver.onCompleted();
+        } else if (response instanceof Exception) {
+            responseObserver.onError((Exception) response);
+        } else {
+            responseObserver.onError(new IllegalArgumentException("Unrecognized response type"));
+        }
+    }
 }

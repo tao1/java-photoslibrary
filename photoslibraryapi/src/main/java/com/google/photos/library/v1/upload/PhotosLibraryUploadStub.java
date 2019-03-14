@@ -19,9 +19,11 @@ package com.google.photos.library.v1.upload;
 import com.google.api.gax.core.BackgroundResource;
 import com.google.api.gax.rpc.UnaryCallable;
 
-/** Base stub class for uploading with Photos Library API. */
+/**
+ * Base stub class for uploading with Photos Library API.
+ */
 public abstract class PhotosLibraryUploadStub implements BackgroundResource {
-  public UnaryCallable<UploadMediaItemRequest, UploadMediaItemResponse> uploadMediaItemCallable() {
-    throw new UnsupportedOperationException("Not implemented: uploadMediaItemCallable()");
-  }
+    public UnaryCallable<UploadMediaItemRequest, UploadMediaItemResponse> uploadMediaItemCallable() {
+        throw new UnsupportedOperationException("Not implemented: uploadMediaItemCallable()");
+    }
 }

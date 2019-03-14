@@ -15,10 +15,6 @@
  */
 package com.google.photos.library.v1.internal;
 
-import static com.google.photos.library.v1.internal.InternalPhotosLibraryClient.ListAlbumsPagedResponse;
-import static com.google.photos.library.v1.internal.InternalPhotosLibraryClient.ListSharedAlbumsPagedResponse;
-import static com.google.photos.library.v1.internal.InternalPhotosLibraryClient.SearchMediaItemsPagedResponse;
-
 import com.google.api.gax.core.NoCredentialsProvider;
 import com.google.api.gax.grpc.GaxGrpcProperties;
 import com.google.api.gax.grpc.testing.LocalChannelProvider;
@@ -59,12 +55,7 @@ import com.google.photos.library.v1.proto.SharedAlbumOptions;
 import com.google.photos.library.v1.proto.UnshareAlbumRequest;
 import com.google.photos.library.v1.proto.UnshareAlbumResponse;
 import com.google.protobuf.GeneratedMessageV3;
-import io.grpc.Status;
-import io.grpc.StatusRuntimeException;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Assert;
@@ -72,733 +63,745 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+import io.grpc.Status;
+import io.grpc.StatusRuntimeException;
+
+import static com.google.photos.library.v1.internal.InternalPhotosLibraryClient.ListAlbumsPagedResponse;
+import static com.google.photos.library.v1.internal.InternalPhotosLibraryClient.ListSharedAlbumsPagedResponse;
+import static com.google.photos.library.v1.internal.InternalPhotosLibraryClient.SearchMediaItemsPagedResponse;
+
 @javax.annotation.Generated("by GAPIC")
 public class InternalPhotosLibraryClientTest {
-  private static MockPhotosLibrary mockPhotosLibrary;
-  private static MockServiceHelper serviceHelper;
-  private InternalPhotosLibraryClient client;
-  private LocalChannelProvider channelProvider;
+    private static MockPhotosLibrary mockPhotosLibrary;
+    private static MockServiceHelper serviceHelper;
+    private InternalPhotosLibraryClient client;
+    private LocalChannelProvider channelProvider;
 
-  @BeforeClass
-  public static void startStaticServer() {
-    mockPhotosLibrary = new MockPhotosLibrary();
-    serviceHelper =
-        new MockServiceHelper("in-process-1", Arrays.<MockGrpcService>asList(mockPhotosLibrary));
-    serviceHelper.start();
-  }
-
-  @AfterClass
-  public static void stopServer() {
-    serviceHelper.stop();
-  }
-
-  @Before
-  public void setUp() throws IOException {
-    serviceHelper.reset();
-    channelProvider = serviceHelper.createChannelProvider();
-    InternalPhotosLibrarySettings settings =
-        InternalPhotosLibrarySettings.newBuilder()
-            .setTransportChannelProvider(channelProvider)
-            .setCredentialsProvider(NoCredentialsProvider.create())
-            .build();
-    client = InternalPhotosLibraryClient.create(settings);
-  }
-
-  @After
-  public void tearDown() throws Exception {
-    client.close();
-  }
-
-  @Test
-  @SuppressWarnings("all")
-  public void createAlbumTest() {
-    String id = "id3355";
-    String title = "title110371416";
-    String productUrl = "productUrl-1491291617";
-    boolean isWriteable = true;
-    long mediaItemsCount = 927196149L;
-    String coverPhotoBaseUrl = "coverPhotoBaseUrl145443830";
-    String coverPhotoMediaItemId = "coverPhotoMediaItemId840621207";
-    Album expectedResponse =
-        Album.newBuilder()
-            .setId(id)
-            .setTitle(title)
-            .setProductUrl(productUrl)
-            .setIsWriteable(isWriteable)
-            .setMediaItemsCount(mediaItemsCount)
-            .setCoverPhotoBaseUrl(coverPhotoBaseUrl)
-            .setCoverPhotoMediaItemId(coverPhotoMediaItemId)
-            .build();
-    mockPhotosLibrary.addResponse(expectedResponse);
-
-    Album album = Album.newBuilder().build();
-
-    Album actualResponse = client.createAlbum(album);
-    Assert.assertEquals(expectedResponse, actualResponse);
-
-    List<GeneratedMessageV3> actualRequests = mockPhotosLibrary.getRequests();
-    Assert.assertEquals(1, actualRequests.size());
-    CreateAlbumRequest actualRequest = (CreateAlbumRequest) actualRequests.get(0);
-
-    Assert.assertEquals(album, actualRequest.getAlbum());
-    Assert.assertTrue(
-        channelProvider.isHeaderSent(
-            ApiClientHeaderProvider.getDefaultApiClientHeaderKey(),
-            GaxGrpcProperties.getDefaultApiClientHeaderPattern()));
-  }
-
-  @Test
-  @SuppressWarnings("all")
-  public void createAlbumExceptionTest() throws Exception {
-    StatusRuntimeException exception = new StatusRuntimeException(Status.INVALID_ARGUMENT);
-    mockPhotosLibrary.addException(exception);
-
-    try {
-      Album album = Album.newBuilder().build();
-
-      client.createAlbum(album);
-      Assert.fail("No exception raised");
-    } catch (InvalidArgumentException e) {
-      // Expected exception
+    @BeforeClass
+    public static void startStaticServer() {
+        mockPhotosLibrary = new MockPhotosLibrary();
+        serviceHelper =
+                new MockServiceHelper("in-process-1", Arrays.<MockGrpcService>asList(mockPhotosLibrary));
+        serviceHelper.start();
     }
-  }
 
-  @Test
-  @SuppressWarnings("all")
-  public void batchCreateMediaItemsTest() {
-    BatchCreateMediaItemsResponse expectedResponse =
-        BatchCreateMediaItemsResponse.newBuilder().build();
-    mockPhotosLibrary.addResponse(expectedResponse);
-
-    String albumId = "albumId1532078315";
-    List<NewMediaItem> newMediaItems = new ArrayList<>();
-    AlbumPosition albumPosition = AlbumPosition.newBuilder().build();
-
-    BatchCreateMediaItemsResponse actualResponse =
-        client.batchCreateMediaItems(albumId, newMediaItems, albumPosition);
-    Assert.assertEquals(expectedResponse, actualResponse);
-
-    List<GeneratedMessageV3> actualRequests = mockPhotosLibrary.getRequests();
-    Assert.assertEquals(1, actualRequests.size());
-    BatchCreateMediaItemsRequest actualRequest =
-        (BatchCreateMediaItemsRequest) actualRequests.get(0);
-
-    Assert.assertEquals(albumId, actualRequest.getAlbumId());
-    Assert.assertEquals(newMediaItems, actualRequest.getNewMediaItemsList());
-    Assert.assertEquals(albumPosition, actualRequest.getAlbumPosition());
-    Assert.assertTrue(
-        channelProvider.isHeaderSent(
-            ApiClientHeaderProvider.getDefaultApiClientHeaderKey(),
-            GaxGrpcProperties.getDefaultApiClientHeaderPattern()));
-  }
-
-  @Test
-  @SuppressWarnings("all")
-  public void batchCreateMediaItemsExceptionTest() throws Exception {
-    StatusRuntimeException exception = new StatusRuntimeException(Status.INVALID_ARGUMENT);
-    mockPhotosLibrary.addException(exception);
-
-    try {
-      String albumId = "albumId1532078315";
-      List<NewMediaItem> newMediaItems = new ArrayList<>();
-      AlbumPosition albumPosition = AlbumPosition.newBuilder().build();
-
-      client.batchCreateMediaItems(albumId, newMediaItems, albumPosition);
-      Assert.fail("No exception raised");
-    } catch (InvalidArgumentException e) {
-      // Expected exception
+    @AfterClass
+    public static void stopServer() {
+        serviceHelper.stop();
     }
-  }
 
-  @Test
-  @SuppressWarnings("all")
-  public void searchMediaItemsTest() {
-    String nextPageToken = "";
-    MediaItem mediaItemsElement = MediaItem.newBuilder().build();
-    List<MediaItem> mediaItems = Arrays.asList(mediaItemsElement);
-    SearchMediaItemsResponse expectedResponse =
-        SearchMediaItemsResponse.newBuilder()
-            .setNextPageToken(nextPageToken)
-            .addAllMediaItems(mediaItems)
-            .build();
-    mockPhotosLibrary.addResponse(expectedResponse);
-
-    String albumId = "albumId1532078315";
-
-    SearchMediaItemsPagedResponse pagedListResponse = client.searchMediaItems(albumId);
-
-    List<MediaItem> resources = Lists.newArrayList(pagedListResponse.iterateAll());
-    Assert.assertEquals(1, resources.size());
-    Assert.assertEquals(expectedResponse.getMediaItemsList().get(0), resources.get(0));
-
-    List<GeneratedMessageV3> actualRequests = mockPhotosLibrary.getRequests();
-    Assert.assertEquals(1, actualRequests.size());
-    SearchMediaItemsRequest actualRequest = (SearchMediaItemsRequest) actualRequests.get(0);
-
-    Assert.assertEquals(albumId, actualRequest.getAlbumId());
-    Assert.assertTrue(
-        channelProvider.isHeaderSent(
-            ApiClientHeaderProvider.getDefaultApiClientHeaderKey(),
-            GaxGrpcProperties.getDefaultApiClientHeaderPattern()));
-  }
-
-  @Test
-  @SuppressWarnings("all")
-  public void searchMediaItemsExceptionTest() throws Exception {
-    StatusRuntimeException exception = new StatusRuntimeException(Status.INVALID_ARGUMENT);
-    mockPhotosLibrary.addException(exception);
-
-    try {
-      String albumId = "albumId1532078315";
-
-      client.searchMediaItems(albumId);
-      Assert.fail("No exception raised");
-    } catch (InvalidArgumentException e) {
-      // Expected exception
+    @Before
+    public void setUp() throws IOException {
+        serviceHelper.reset();
+        channelProvider = serviceHelper.createChannelProvider();
+        InternalPhotosLibrarySettings settings =
+                InternalPhotosLibrarySettings.newBuilder()
+                        .setTransportChannelProvider(channelProvider)
+                        .setCredentialsProvider(NoCredentialsProvider.create())
+                        .build();
+        client = InternalPhotosLibraryClient.create(settings);
     }
-  }
 
-  @Test
-  @SuppressWarnings("all")
-  public void searchMediaItemsTest2() {
-    String nextPageToken = "";
-    MediaItem mediaItemsElement = MediaItem.newBuilder().build();
-    List<MediaItem> mediaItems = Arrays.asList(mediaItemsElement);
-    SearchMediaItemsResponse expectedResponse =
-        SearchMediaItemsResponse.newBuilder()
-            .setNextPageToken(nextPageToken)
-            .addAllMediaItems(mediaItems)
-            .build();
-    mockPhotosLibrary.addResponse(expectedResponse);
-
-    Filters filters = Filters.newBuilder().build();
-
-    SearchMediaItemsPagedResponse pagedListResponse = client.searchMediaItems(filters);
-
-    List<MediaItem> resources = Lists.newArrayList(pagedListResponse.iterateAll());
-    Assert.assertEquals(1, resources.size());
-    Assert.assertEquals(expectedResponse.getMediaItemsList().get(0), resources.get(0));
-
-    List<GeneratedMessageV3> actualRequests = mockPhotosLibrary.getRequests();
-    Assert.assertEquals(1, actualRequests.size());
-    SearchMediaItemsRequest actualRequest = (SearchMediaItemsRequest) actualRequests.get(0);
-
-    Assert.assertEquals(filters, actualRequest.getFilters());
-    Assert.assertTrue(
-        channelProvider.isHeaderSent(
-            ApiClientHeaderProvider.getDefaultApiClientHeaderKey(),
-            GaxGrpcProperties.getDefaultApiClientHeaderPattern()));
-  }
-
-  @Test
-  @SuppressWarnings("all")
-  public void searchMediaItemsExceptionTest2() throws Exception {
-    StatusRuntimeException exception = new StatusRuntimeException(Status.INVALID_ARGUMENT);
-    mockPhotosLibrary.addException(exception);
-
-    try {
-      Filters filters = Filters.newBuilder().build();
-
-      client.searchMediaItems(filters);
-      Assert.fail("No exception raised");
-    } catch (InvalidArgumentException e) {
-      // Expected exception
+    @After
+    public void tearDown() throws Exception {
+        client.close();
     }
-  }
 
-  @Test
-  @SuppressWarnings("all")
-  public void getMediaItemTest() {
-    String id = "id3355";
-    String description = "description-1724546052";
-    String productUrl = "productUrl-1491291617";
-    String baseUrl = "baseUrl-1721160959";
-    String mimeType = "mimeType-196041627";
-    String filename = "filename-734768633";
-    MediaItem expectedResponse =
-        MediaItem.newBuilder()
-            .setId(id)
-            .setDescription(description)
-            .setProductUrl(productUrl)
-            .setBaseUrl(baseUrl)
-            .setMimeType(mimeType)
-            .setFilename(filename)
-            .build();
-    mockPhotosLibrary.addResponse(expectedResponse);
+    @Test
+    @SuppressWarnings("all")
+    public void createAlbumTest() {
+        String id = "id3355";
+        String title = "title110371416";
+        String productUrl = "productUrl-1491291617";
+        boolean isWriteable = true;
+        long mediaItemsCount = 927196149L;
+        String coverPhotoBaseUrl = "coverPhotoBaseUrl145443830";
+        String coverPhotoMediaItemId = "coverPhotoMediaItemId840621207";
+        Album expectedResponse =
+                Album.newBuilder()
+                        .setId(id)
+                        .setTitle(title)
+                        .setProductUrl(productUrl)
+                        .setIsWriteable(isWriteable)
+                        .setMediaItemsCount(mediaItemsCount)
+                        .setCoverPhotoBaseUrl(coverPhotoBaseUrl)
+                        .setCoverPhotoMediaItemId(coverPhotoMediaItemId)
+                        .build();
+        mockPhotosLibrary.addResponse(expectedResponse);
 
-    String mediaItemId = "mediaItemId720743532";
+        Album album = Album.newBuilder().build();
 
-    MediaItem actualResponse = client.getMediaItem(mediaItemId);
-    Assert.assertEquals(expectedResponse, actualResponse);
+        Album actualResponse = client.createAlbum(album);
+        Assert.assertEquals(expectedResponse, actualResponse);
 
-    List<GeneratedMessageV3> actualRequests = mockPhotosLibrary.getRequests();
-    Assert.assertEquals(1, actualRequests.size());
-    GetMediaItemRequest actualRequest = (GetMediaItemRequest) actualRequests.get(0);
+        List<GeneratedMessageV3> actualRequests = mockPhotosLibrary.getRequests();
+        Assert.assertEquals(1, actualRequests.size());
+        CreateAlbumRequest actualRequest = (CreateAlbumRequest) actualRequests.get(0);
 
-    Assert.assertEquals(mediaItemId, actualRequest.getMediaItemId());
-    Assert.assertTrue(
-        channelProvider.isHeaderSent(
-            ApiClientHeaderProvider.getDefaultApiClientHeaderKey(),
-            GaxGrpcProperties.getDefaultApiClientHeaderPattern()));
-  }
-
-  @Test
-  @SuppressWarnings("all")
-  public void getMediaItemExceptionTest() throws Exception {
-    StatusRuntimeException exception = new StatusRuntimeException(Status.INVALID_ARGUMENT);
-    mockPhotosLibrary.addException(exception);
-
-    try {
-      String mediaItemId = "mediaItemId720743532";
-
-      client.getMediaItem(mediaItemId);
-      Assert.fail("No exception raised");
-    } catch (InvalidArgumentException e) {
-      // Expected exception
+        Assert.assertEquals(album, actualRequest.getAlbum());
+        Assert.assertTrue(
+                channelProvider.isHeaderSent(
+                        ApiClientHeaderProvider.getDefaultApiClientHeaderKey(),
+                        GaxGrpcProperties.getDefaultApiClientHeaderPattern()));
     }
-  }
 
-  @Test
-  @SuppressWarnings("all")
-  public void batchGetMediaItemsTest() {
-    BatchGetMediaItemsResponse expectedResponse = BatchGetMediaItemsResponse.newBuilder().build();
-    mockPhotosLibrary.addResponse(expectedResponse);
+    @Test
+    @SuppressWarnings("all")
+    public void createAlbumExceptionTest() throws Exception {
+        StatusRuntimeException exception = new StatusRuntimeException(Status.INVALID_ARGUMENT);
+        mockPhotosLibrary.addException(exception);
 
-    List<String> mediaItemIds = new ArrayList<>();
+        try {
+            Album album = Album.newBuilder().build();
 
-    BatchGetMediaItemsResponse actualResponse = client.batchGetMediaItems(mediaItemIds);
-    Assert.assertEquals(expectedResponse, actualResponse);
-
-    List<GeneratedMessageV3> actualRequests = mockPhotosLibrary.getRequests();
-    Assert.assertEquals(1, actualRequests.size());
-    BatchGetMediaItemsRequest actualRequest = (BatchGetMediaItemsRequest) actualRequests.get(0);
-
-    Assert.assertEquals(mediaItemIds, actualRequest.getMediaItemIdsList());
-    Assert.assertTrue(
-        channelProvider.isHeaderSent(
-            ApiClientHeaderProvider.getDefaultApiClientHeaderKey(),
-            GaxGrpcProperties.getDefaultApiClientHeaderPattern()));
-  }
-
-  @Test
-  @SuppressWarnings("all")
-  public void batchGetMediaItemsExceptionTest() throws Exception {
-    StatusRuntimeException exception = new StatusRuntimeException(Status.INVALID_ARGUMENT);
-    mockPhotosLibrary.addException(exception);
-
-    try {
-      List<String> mediaItemIds = new ArrayList<>();
-
-      client.batchGetMediaItems(mediaItemIds);
-      Assert.fail("No exception raised");
-    } catch (InvalidArgumentException e) {
-      // Expected exception
+            client.createAlbum(album);
+            Assert.fail("No exception raised");
+        } catch (InvalidArgumentException e) {
+            // Expected exception
+        }
     }
-  }
 
-  @Test
-  @SuppressWarnings("all")
-  public void listAlbumsTest() {
-    String nextPageToken = "";
-    Album albumsElement = Album.newBuilder().build();
-    List<Album> albums = Arrays.asList(albumsElement);
-    ListAlbumsResponse expectedResponse =
-        ListAlbumsResponse.newBuilder()
-            .setNextPageToken(nextPageToken)
-            .addAllAlbums(albums)
-            .build();
-    mockPhotosLibrary.addResponse(expectedResponse);
+    @Test
+    @SuppressWarnings("all")
+    public void batchCreateMediaItemsTest() {
+        BatchCreateMediaItemsResponse expectedResponse =
+                BatchCreateMediaItemsResponse.newBuilder().build();
+        mockPhotosLibrary.addResponse(expectedResponse);
 
-    boolean excludeNonAppCreatedData = true;
+        String albumId = "albumId1532078315";
+        List<NewMediaItem> newMediaItems = new ArrayList<>();
+        AlbumPosition albumPosition = AlbumPosition.newBuilder().build();
 
-    ListAlbumsPagedResponse pagedListResponse = client.listAlbums(excludeNonAppCreatedData);
+        BatchCreateMediaItemsResponse actualResponse =
+                client.batchCreateMediaItems(albumId, newMediaItems, albumPosition);
+        Assert.assertEquals(expectedResponse, actualResponse);
 
-    List<Album> resources = Lists.newArrayList(pagedListResponse.iterateAll());
-    Assert.assertEquals(1, resources.size());
-    Assert.assertEquals(expectedResponse.getAlbumsList().get(0), resources.get(0));
+        List<GeneratedMessageV3> actualRequests = mockPhotosLibrary.getRequests();
+        Assert.assertEquals(1, actualRequests.size());
+        BatchCreateMediaItemsRequest actualRequest =
+                (BatchCreateMediaItemsRequest) actualRequests.get(0);
 
-    List<GeneratedMessageV3> actualRequests = mockPhotosLibrary.getRequests();
-    Assert.assertEquals(1, actualRequests.size());
-    ListAlbumsRequest actualRequest = (ListAlbumsRequest) actualRequests.get(0);
-
-    Assert.assertEquals(excludeNonAppCreatedData, actualRequest.getExcludeNonAppCreatedData());
-    Assert.assertTrue(
-        channelProvider.isHeaderSent(
-            ApiClientHeaderProvider.getDefaultApiClientHeaderKey(),
-            GaxGrpcProperties.getDefaultApiClientHeaderPattern()));
-  }
-
-  @Test
-  @SuppressWarnings("all")
-  public void listAlbumsExceptionTest() throws Exception {
-    StatusRuntimeException exception = new StatusRuntimeException(Status.INVALID_ARGUMENT);
-    mockPhotosLibrary.addException(exception);
-
-    try {
-      boolean excludeNonAppCreatedData = true;
-
-      client.listAlbums(excludeNonAppCreatedData);
-      Assert.fail("No exception raised");
-    } catch (InvalidArgumentException e) {
-      // Expected exception
+        Assert.assertEquals(albumId, actualRequest.getAlbumId());
+        Assert.assertEquals(newMediaItems, actualRequest.getNewMediaItemsList());
+        Assert.assertEquals(albumPosition, actualRequest.getAlbumPosition());
+        Assert.assertTrue(
+                channelProvider.isHeaderSent(
+                        ApiClientHeaderProvider.getDefaultApiClientHeaderKey(),
+                        GaxGrpcProperties.getDefaultApiClientHeaderPattern()));
     }
-  }
 
-  @Test
-  @SuppressWarnings("all")
-  public void getAlbumTest() {
-    String id = "id3355";
-    String title = "title110371416";
-    String productUrl = "productUrl-1491291617";
-    boolean isWriteable = true;
-    long mediaItemsCount = 927196149L;
-    String coverPhotoBaseUrl = "coverPhotoBaseUrl145443830";
-    String coverPhotoMediaItemId = "coverPhotoMediaItemId840621207";
-    Album expectedResponse =
-        Album.newBuilder()
-            .setId(id)
-            .setTitle(title)
-            .setProductUrl(productUrl)
-            .setIsWriteable(isWriteable)
-            .setMediaItemsCount(mediaItemsCount)
-            .setCoverPhotoBaseUrl(coverPhotoBaseUrl)
-            .setCoverPhotoMediaItemId(coverPhotoMediaItemId)
-            .build();
-    mockPhotosLibrary.addResponse(expectedResponse);
+    @Test
+    @SuppressWarnings("all")
+    public void batchCreateMediaItemsExceptionTest() throws Exception {
+        StatusRuntimeException exception = new StatusRuntimeException(Status.INVALID_ARGUMENT);
+        mockPhotosLibrary.addException(exception);
 
-    String albumId = "albumId1532078315";
+        try {
+            String albumId = "albumId1532078315";
+            List<NewMediaItem> newMediaItems = new ArrayList<>();
+            AlbumPosition albumPosition = AlbumPosition.newBuilder().build();
 
-    Album actualResponse = client.getAlbum(albumId);
-    Assert.assertEquals(expectedResponse, actualResponse);
-
-    List<GeneratedMessageV3> actualRequests = mockPhotosLibrary.getRequests();
-    Assert.assertEquals(1, actualRequests.size());
-    GetAlbumRequest actualRequest = (GetAlbumRequest) actualRequests.get(0);
-
-    Assert.assertEquals(albumId, actualRequest.getAlbumId());
-    Assert.assertTrue(
-        channelProvider.isHeaderSent(
-            ApiClientHeaderProvider.getDefaultApiClientHeaderKey(),
-            GaxGrpcProperties.getDefaultApiClientHeaderPattern()));
-  }
-
-  @Test
-  @SuppressWarnings("all")
-  public void getAlbumExceptionTest() throws Exception {
-    StatusRuntimeException exception = new StatusRuntimeException(Status.INVALID_ARGUMENT);
-    mockPhotosLibrary.addException(exception);
-
-    try {
-      String albumId = "albumId1532078315";
-
-      client.getAlbum(albumId);
-      Assert.fail("No exception raised");
-    } catch (InvalidArgumentException e) {
-      // Expected exception
+            client.batchCreateMediaItems(albumId, newMediaItems, albumPosition);
+            Assert.fail("No exception raised");
+        } catch (InvalidArgumentException e) {
+            // Expected exception
+        }
     }
-  }
 
-  @Test
-  @SuppressWarnings("all")
-  public void getSharedAlbumTest() {
-    String id = "id3355";
-    String title = "title110371416";
-    String productUrl = "productUrl-1491291617";
-    boolean isWriteable = true;
-    long mediaItemsCount = 927196149L;
-    String coverPhotoBaseUrl = "coverPhotoBaseUrl145443830";
-    String coverPhotoMediaItemId = "coverPhotoMediaItemId840621207";
-    Album expectedResponse =
-        Album.newBuilder()
-            .setId(id)
-            .setTitle(title)
-            .setProductUrl(productUrl)
-            .setIsWriteable(isWriteable)
-            .setMediaItemsCount(mediaItemsCount)
-            .setCoverPhotoBaseUrl(coverPhotoBaseUrl)
-            .setCoverPhotoMediaItemId(coverPhotoMediaItemId)
-            .build();
-    mockPhotosLibrary.addResponse(expectedResponse);
+    @Test
+    @SuppressWarnings("all")
+    public void searchMediaItemsTest() {
+        String nextPageToken = "";
+        MediaItem mediaItemsElement = MediaItem.newBuilder().build();
+        List<MediaItem> mediaItems = Arrays.asList(mediaItemsElement);
+        SearchMediaItemsResponse expectedResponse =
+                SearchMediaItemsResponse.newBuilder()
+                        .setNextPageToken(nextPageToken)
+                        .addAllMediaItems(mediaItems)
+                        .build();
+        mockPhotosLibrary.addResponse(expectedResponse);
 
-    String shareToken = "shareToken407816601";
+        String albumId = "albumId1532078315";
 
-    Album actualResponse = client.getSharedAlbum(shareToken);
-    Assert.assertEquals(expectedResponse, actualResponse);
+        SearchMediaItemsPagedResponse pagedListResponse = client.searchMediaItems(albumId);
 
-    List<GeneratedMessageV3> actualRequests = mockPhotosLibrary.getRequests();
-    Assert.assertEquals(1, actualRequests.size());
-    GetSharedAlbumRequest actualRequest = (GetSharedAlbumRequest) actualRequests.get(0);
+        List<MediaItem> resources = Lists.newArrayList(pagedListResponse.iterateAll());
+        Assert.assertEquals(1, resources.size());
+        Assert.assertEquals(expectedResponse.getMediaItemsList().get(0), resources.get(0));
 
-    Assert.assertEquals(shareToken, actualRequest.getShareToken());
-    Assert.assertTrue(
-        channelProvider.isHeaderSent(
-            ApiClientHeaderProvider.getDefaultApiClientHeaderKey(),
-            GaxGrpcProperties.getDefaultApiClientHeaderPattern()));
-  }
+        List<GeneratedMessageV3> actualRequests = mockPhotosLibrary.getRequests();
+        Assert.assertEquals(1, actualRequests.size());
+        SearchMediaItemsRequest actualRequest = (SearchMediaItemsRequest) actualRequests.get(0);
 
-  @Test
-  @SuppressWarnings("all")
-  public void getSharedAlbumExceptionTest() throws Exception {
-    StatusRuntimeException exception = new StatusRuntimeException(Status.INVALID_ARGUMENT);
-    mockPhotosLibrary.addException(exception);
-
-    try {
-      String shareToken = "shareToken407816601";
-
-      client.getSharedAlbum(shareToken);
-      Assert.fail("No exception raised");
-    } catch (InvalidArgumentException e) {
-      // Expected exception
+        Assert.assertEquals(albumId, actualRequest.getAlbumId());
+        Assert.assertTrue(
+                channelProvider.isHeaderSent(
+                        ApiClientHeaderProvider.getDefaultApiClientHeaderKey(),
+                        GaxGrpcProperties.getDefaultApiClientHeaderPattern()));
     }
-  }
 
-  @Test
-  @SuppressWarnings("all")
-  public void addEnrichmentToAlbumTest() {
-    AddEnrichmentToAlbumResponse expectedResponse =
-        AddEnrichmentToAlbumResponse.newBuilder().build();
-    mockPhotosLibrary.addResponse(expectedResponse);
+    @Test
+    @SuppressWarnings("all")
+    public void searchMediaItemsExceptionTest() throws Exception {
+        StatusRuntimeException exception = new StatusRuntimeException(Status.INVALID_ARGUMENT);
+        mockPhotosLibrary.addException(exception);
 
-    String albumId = "albumId1532078315";
-    NewEnrichmentItem newEnrichmentItem = NewEnrichmentItem.newBuilder().build();
-    AlbumPosition albumPosition = AlbumPosition.newBuilder().build();
+        try {
+            String albumId = "albumId1532078315";
 
-    AddEnrichmentToAlbumResponse actualResponse =
-        client.addEnrichmentToAlbum(albumId, newEnrichmentItem, albumPosition);
-    Assert.assertEquals(expectedResponse, actualResponse);
-
-    List<GeneratedMessageV3> actualRequests = mockPhotosLibrary.getRequests();
-    Assert.assertEquals(1, actualRequests.size());
-    AddEnrichmentToAlbumRequest actualRequest = (AddEnrichmentToAlbumRequest) actualRequests.get(0);
-
-    Assert.assertEquals(albumId, actualRequest.getAlbumId());
-    Assert.assertEquals(newEnrichmentItem, actualRequest.getNewEnrichmentItem());
-    Assert.assertEquals(albumPosition, actualRequest.getAlbumPosition());
-    Assert.assertTrue(
-        channelProvider.isHeaderSent(
-            ApiClientHeaderProvider.getDefaultApiClientHeaderKey(),
-            GaxGrpcProperties.getDefaultApiClientHeaderPattern()));
-  }
-
-  @Test
-  @SuppressWarnings("all")
-  public void addEnrichmentToAlbumExceptionTest() throws Exception {
-    StatusRuntimeException exception = new StatusRuntimeException(Status.INVALID_ARGUMENT);
-    mockPhotosLibrary.addException(exception);
-
-    try {
-      String albumId = "albumId1532078315";
-      NewEnrichmentItem newEnrichmentItem = NewEnrichmentItem.newBuilder().build();
-      AlbumPosition albumPosition = AlbumPosition.newBuilder().build();
-
-      client.addEnrichmentToAlbum(albumId, newEnrichmentItem, albumPosition);
-      Assert.fail("No exception raised");
-    } catch (InvalidArgumentException e) {
-      // Expected exception
+            client.searchMediaItems(albumId);
+            Assert.fail("No exception raised");
+        } catch (InvalidArgumentException e) {
+            // Expected exception
+        }
     }
-  }
 
-  @Test
-  @SuppressWarnings("all")
-  public void joinSharedAlbumTest() {
-    JoinSharedAlbumResponse expectedResponse = JoinSharedAlbumResponse.newBuilder().build();
-    mockPhotosLibrary.addResponse(expectedResponse);
+    @Test
+    @SuppressWarnings("all")
+    public void searchMediaItemsTest2() {
+        String nextPageToken = "";
+        MediaItem mediaItemsElement = MediaItem.newBuilder().build();
+        List<MediaItem> mediaItems = Arrays.asList(mediaItemsElement);
+        SearchMediaItemsResponse expectedResponse =
+                SearchMediaItemsResponse.newBuilder()
+                        .setNextPageToken(nextPageToken)
+                        .addAllMediaItems(mediaItems)
+                        .build();
+        mockPhotosLibrary.addResponse(expectedResponse);
 
-    String shareToken = "shareToken407816601";
+        Filters filters = Filters.newBuilder().build();
 
-    JoinSharedAlbumResponse actualResponse = client.joinSharedAlbum(shareToken);
-    Assert.assertEquals(expectedResponse, actualResponse);
+        SearchMediaItemsPagedResponse pagedListResponse = client.searchMediaItems(filters);
 
-    List<GeneratedMessageV3> actualRequests = mockPhotosLibrary.getRequests();
-    Assert.assertEquals(1, actualRequests.size());
-    JoinSharedAlbumRequest actualRequest = (JoinSharedAlbumRequest) actualRequests.get(0);
+        List<MediaItem> resources = Lists.newArrayList(pagedListResponse.iterateAll());
+        Assert.assertEquals(1, resources.size());
+        Assert.assertEquals(expectedResponse.getMediaItemsList().get(0), resources.get(0));
 
-    Assert.assertEquals(shareToken, actualRequest.getShareToken());
-    Assert.assertTrue(
-        channelProvider.isHeaderSent(
-            ApiClientHeaderProvider.getDefaultApiClientHeaderKey(),
-            GaxGrpcProperties.getDefaultApiClientHeaderPattern()));
-  }
+        List<GeneratedMessageV3> actualRequests = mockPhotosLibrary.getRequests();
+        Assert.assertEquals(1, actualRequests.size());
+        SearchMediaItemsRequest actualRequest = (SearchMediaItemsRequest) actualRequests.get(0);
 
-  @Test
-  @SuppressWarnings("all")
-  public void joinSharedAlbumExceptionTest() throws Exception {
-    StatusRuntimeException exception = new StatusRuntimeException(Status.INVALID_ARGUMENT);
-    mockPhotosLibrary.addException(exception);
-
-    try {
-      String shareToken = "shareToken407816601";
-
-      client.joinSharedAlbum(shareToken);
-      Assert.fail("No exception raised");
-    } catch (InvalidArgumentException e) {
-      // Expected exception
+        Assert.assertEquals(filters, actualRequest.getFilters());
+        Assert.assertTrue(
+                channelProvider.isHeaderSent(
+                        ApiClientHeaderProvider.getDefaultApiClientHeaderKey(),
+                        GaxGrpcProperties.getDefaultApiClientHeaderPattern()));
     }
-  }
 
-  @Test
-  @SuppressWarnings("all")
-  public void leaveSharedAlbumTest() {
-    LeaveSharedAlbumResponse expectedResponse = LeaveSharedAlbumResponse.newBuilder().build();
-    mockPhotosLibrary.addResponse(expectedResponse);
+    @Test
+    @SuppressWarnings("all")
+    public void searchMediaItemsExceptionTest2() throws Exception {
+        StatusRuntimeException exception = new StatusRuntimeException(Status.INVALID_ARGUMENT);
+        mockPhotosLibrary.addException(exception);
 
-    String shareToken = "shareToken407816601";
+        try {
+            Filters filters = Filters.newBuilder().build();
 
-    LeaveSharedAlbumResponse actualResponse = client.leaveSharedAlbum(shareToken);
-    Assert.assertEquals(expectedResponse, actualResponse);
-
-    List<GeneratedMessageV3> actualRequests = mockPhotosLibrary.getRequests();
-    Assert.assertEquals(1, actualRequests.size());
-    LeaveSharedAlbumRequest actualRequest = (LeaveSharedAlbumRequest) actualRequests.get(0);
-
-    Assert.assertEquals(shareToken, actualRequest.getShareToken());
-    Assert.assertTrue(
-        channelProvider.isHeaderSent(
-            ApiClientHeaderProvider.getDefaultApiClientHeaderKey(),
-            GaxGrpcProperties.getDefaultApiClientHeaderPattern()));
-  }
-
-  @Test
-  @SuppressWarnings("all")
-  public void leaveSharedAlbumExceptionTest() throws Exception {
-    StatusRuntimeException exception = new StatusRuntimeException(Status.INVALID_ARGUMENT);
-    mockPhotosLibrary.addException(exception);
-
-    try {
-      String shareToken = "shareToken407816601";
-
-      client.leaveSharedAlbum(shareToken);
-      Assert.fail("No exception raised");
-    } catch (InvalidArgumentException e) {
-      // Expected exception
+            client.searchMediaItems(filters);
+            Assert.fail("No exception raised");
+        } catch (InvalidArgumentException e) {
+            // Expected exception
+        }
     }
-  }
 
-  @Test
-  @SuppressWarnings("all")
-  public void shareAlbumTest() {
-    ShareAlbumResponse expectedResponse = ShareAlbumResponse.newBuilder().build();
-    mockPhotosLibrary.addResponse(expectedResponse);
+    @Test
+    @SuppressWarnings("all")
+    public void getMediaItemTest() {
+        String id = "id3355";
+        String description = "description-1724546052";
+        String productUrl = "productUrl-1491291617";
+        String baseUrl = "baseUrl-1721160959";
+        String mimeType = "mimeType-196041627";
+        String filename = "filename-734768633";
+        MediaItem expectedResponse =
+                MediaItem.newBuilder()
+                        .setId(id)
+                        .setDescription(description)
+                        .setProductUrl(productUrl)
+                        .setBaseUrl(baseUrl)
+                        .setMimeType(mimeType)
+                        .setFilename(filename)
+                        .build();
+        mockPhotosLibrary.addResponse(expectedResponse);
 
-    String albumId = "albumId1532078315";
-    SharedAlbumOptions sharedAlbumOptions = SharedAlbumOptions.newBuilder().build();
+        String mediaItemId = "mediaItemId720743532";
 
-    ShareAlbumResponse actualResponse = client.shareAlbum(albumId, sharedAlbumOptions);
-    Assert.assertEquals(expectedResponse, actualResponse);
+        MediaItem actualResponse = client.getMediaItem(mediaItemId);
+        Assert.assertEquals(expectedResponse, actualResponse);
 
-    List<GeneratedMessageV3> actualRequests = mockPhotosLibrary.getRequests();
-    Assert.assertEquals(1, actualRequests.size());
-    ShareAlbumRequest actualRequest = (ShareAlbumRequest) actualRequests.get(0);
+        List<GeneratedMessageV3> actualRequests = mockPhotosLibrary.getRequests();
+        Assert.assertEquals(1, actualRequests.size());
+        GetMediaItemRequest actualRequest = (GetMediaItemRequest) actualRequests.get(0);
 
-    Assert.assertEquals(albumId, actualRequest.getAlbumId());
-    Assert.assertEquals(sharedAlbumOptions, actualRequest.getSharedAlbumOptions());
-    Assert.assertTrue(
-        channelProvider.isHeaderSent(
-            ApiClientHeaderProvider.getDefaultApiClientHeaderKey(),
-            GaxGrpcProperties.getDefaultApiClientHeaderPattern()));
-  }
-
-  @Test
-  @SuppressWarnings("all")
-  public void shareAlbumExceptionTest() throws Exception {
-    StatusRuntimeException exception = new StatusRuntimeException(Status.INVALID_ARGUMENT);
-    mockPhotosLibrary.addException(exception);
-
-    try {
-      String albumId = "albumId1532078315";
-      SharedAlbumOptions sharedAlbumOptions = SharedAlbumOptions.newBuilder().build();
-
-      client.shareAlbum(albumId, sharedAlbumOptions);
-      Assert.fail("No exception raised");
-    } catch (InvalidArgumentException e) {
-      // Expected exception
+        Assert.assertEquals(mediaItemId, actualRequest.getMediaItemId());
+        Assert.assertTrue(
+                channelProvider.isHeaderSent(
+                        ApiClientHeaderProvider.getDefaultApiClientHeaderKey(),
+                        GaxGrpcProperties.getDefaultApiClientHeaderPattern()));
     }
-  }
 
-  @Test
-  @SuppressWarnings("all")
-  public void listSharedAlbumsTest() {
-    String nextPageToken = "";
-    Album sharedAlbumsElement = Album.newBuilder().build();
-    List<Album> sharedAlbums = Arrays.asList(sharedAlbumsElement);
-    ListSharedAlbumsResponse expectedResponse =
-        ListSharedAlbumsResponse.newBuilder()
-            .setNextPageToken(nextPageToken)
-            .addAllSharedAlbums(sharedAlbums)
-            .build();
-    mockPhotosLibrary.addResponse(expectedResponse);
+    @Test
+    @SuppressWarnings("all")
+    public void getMediaItemExceptionTest() throws Exception {
+        StatusRuntimeException exception = new StatusRuntimeException(Status.INVALID_ARGUMENT);
+        mockPhotosLibrary.addException(exception);
 
-    boolean excludeNonAppCreatedData = true;
+        try {
+            String mediaItemId = "mediaItemId720743532";
 
-    ListSharedAlbumsPagedResponse pagedListResponse =
-        client.listSharedAlbums(excludeNonAppCreatedData);
-
-    List<Album> resources = Lists.newArrayList(pagedListResponse.iterateAll());
-    Assert.assertEquals(1, resources.size());
-    Assert.assertEquals(expectedResponse.getSharedAlbumsList().get(0), resources.get(0));
-
-    List<GeneratedMessageV3> actualRequests = mockPhotosLibrary.getRequests();
-    Assert.assertEquals(1, actualRequests.size());
-    ListSharedAlbumsRequest actualRequest = (ListSharedAlbumsRequest) actualRequests.get(0);
-
-    Assert.assertEquals(excludeNonAppCreatedData, actualRequest.getExcludeNonAppCreatedData());
-    Assert.assertTrue(
-        channelProvider.isHeaderSent(
-            ApiClientHeaderProvider.getDefaultApiClientHeaderKey(),
-            GaxGrpcProperties.getDefaultApiClientHeaderPattern()));
-  }
-
-  @Test
-  @SuppressWarnings("all")
-  public void listSharedAlbumsExceptionTest() throws Exception {
-    StatusRuntimeException exception = new StatusRuntimeException(Status.INVALID_ARGUMENT);
-    mockPhotosLibrary.addException(exception);
-
-    try {
-      boolean excludeNonAppCreatedData = true;
-
-      client.listSharedAlbums(excludeNonAppCreatedData);
-      Assert.fail("No exception raised");
-    } catch (InvalidArgumentException e) {
-      // Expected exception
+            client.getMediaItem(mediaItemId);
+            Assert.fail("No exception raised");
+        } catch (InvalidArgumentException e) {
+            // Expected exception
+        }
     }
-  }
 
-  @Test
-  @SuppressWarnings("all")
-  public void unshareAlbumTest() {
-    UnshareAlbumResponse expectedResponse = UnshareAlbumResponse.newBuilder().build();
-    mockPhotosLibrary.addResponse(expectedResponse);
+    @Test
+    @SuppressWarnings("all")
+    public void batchGetMediaItemsTest() {
+        BatchGetMediaItemsResponse expectedResponse = BatchGetMediaItemsResponse.newBuilder().build();
+        mockPhotosLibrary.addResponse(expectedResponse);
 
-    String albumId = "albumId1532078315";
+        List<String> mediaItemIds = new ArrayList<>();
 
-    UnshareAlbumResponse actualResponse = client.unshareAlbum(albumId);
-    Assert.assertEquals(expectedResponse, actualResponse);
+        BatchGetMediaItemsResponse actualResponse = client.batchGetMediaItems(mediaItemIds);
+        Assert.assertEquals(expectedResponse, actualResponse);
 
-    List<GeneratedMessageV3> actualRequests = mockPhotosLibrary.getRequests();
-    Assert.assertEquals(1, actualRequests.size());
-    UnshareAlbumRequest actualRequest = (UnshareAlbumRequest) actualRequests.get(0);
+        List<GeneratedMessageV3> actualRequests = mockPhotosLibrary.getRequests();
+        Assert.assertEquals(1, actualRequests.size());
+        BatchGetMediaItemsRequest actualRequest = (BatchGetMediaItemsRequest) actualRequests.get(0);
 
-    Assert.assertEquals(albumId, actualRequest.getAlbumId());
-    Assert.assertTrue(
-        channelProvider.isHeaderSent(
-            ApiClientHeaderProvider.getDefaultApiClientHeaderKey(),
-            GaxGrpcProperties.getDefaultApiClientHeaderPattern()));
-  }
-
-  @Test
-  @SuppressWarnings("all")
-  public void unshareAlbumExceptionTest() throws Exception {
-    StatusRuntimeException exception = new StatusRuntimeException(Status.INVALID_ARGUMENT);
-    mockPhotosLibrary.addException(exception);
-
-    try {
-      String albumId = "albumId1532078315";
-
-      client.unshareAlbum(albumId);
-      Assert.fail("No exception raised");
-    } catch (InvalidArgumentException e) {
-      // Expected exception
+        Assert.assertEquals(mediaItemIds, actualRequest.getMediaItemIdsList());
+        Assert.assertTrue(
+                channelProvider.isHeaderSent(
+                        ApiClientHeaderProvider.getDefaultApiClientHeaderKey(),
+                        GaxGrpcProperties.getDefaultApiClientHeaderPattern()));
     }
-  }
+
+    @Test
+    @SuppressWarnings("all")
+    public void batchGetMediaItemsExceptionTest() throws Exception {
+        StatusRuntimeException exception = new StatusRuntimeException(Status.INVALID_ARGUMENT);
+        mockPhotosLibrary.addException(exception);
+
+        try {
+            List<String> mediaItemIds = new ArrayList<>();
+
+            client.batchGetMediaItems(mediaItemIds);
+            Assert.fail("No exception raised");
+        } catch (InvalidArgumentException e) {
+            // Expected exception
+        }
+    }
+
+    @Test
+    @SuppressWarnings("all")
+    public void listAlbumsTest() {
+        String nextPageToken = "";
+        Album albumsElement = Album.newBuilder().build();
+        List<Album> albums = Arrays.asList(albumsElement);
+        ListAlbumsResponse expectedResponse =
+                ListAlbumsResponse.newBuilder()
+                        .setNextPageToken(nextPageToken)
+                        .addAllAlbums(albums)
+                        .build();
+        mockPhotosLibrary.addResponse(expectedResponse);
+
+        boolean excludeNonAppCreatedData = true;
+
+        ListAlbumsPagedResponse pagedListResponse = client.listAlbums(excludeNonAppCreatedData);
+
+        List<Album> resources = Lists.newArrayList(pagedListResponse.iterateAll());
+        Assert.assertEquals(1, resources.size());
+        Assert.assertEquals(expectedResponse.getAlbumsList().get(0), resources.get(0));
+
+        List<GeneratedMessageV3> actualRequests = mockPhotosLibrary.getRequests();
+        Assert.assertEquals(1, actualRequests.size());
+        ListAlbumsRequest actualRequest = (ListAlbumsRequest) actualRequests.get(0);
+
+        Assert.assertEquals(excludeNonAppCreatedData, actualRequest.getExcludeNonAppCreatedData());
+        Assert.assertTrue(
+                channelProvider.isHeaderSent(
+                        ApiClientHeaderProvider.getDefaultApiClientHeaderKey(),
+                        GaxGrpcProperties.getDefaultApiClientHeaderPattern()));
+    }
+
+    @Test
+    @SuppressWarnings("all")
+    public void listAlbumsExceptionTest() throws Exception {
+        StatusRuntimeException exception = new StatusRuntimeException(Status.INVALID_ARGUMENT);
+        mockPhotosLibrary.addException(exception);
+
+        try {
+            boolean excludeNonAppCreatedData = true;
+
+            client.listAlbums(excludeNonAppCreatedData);
+            Assert.fail("No exception raised");
+        } catch (InvalidArgumentException e) {
+            // Expected exception
+        }
+    }
+
+    @Test
+    @SuppressWarnings("all")
+    public void getAlbumTest() {
+        String id = "id3355";
+        String title = "title110371416";
+        String productUrl = "productUrl-1491291617";
+        boolean isWriteable = true;
+        long mediaItemsCount = 927196149L;
+        String coverPhotoBaseUrl = "coverPhotoBaseUrl145443830";
+        String coverPhotoMediaItemId = "coverPhotoMediaItemId840621207";
+        Album expectedResponse =
+                Album.newBuilder()
+                        .setId(id)
+                        .setTitle(title)
+                        .setProductUrl(productUrl)
+                        .setIsWriteable(isWriteable)
+                        .setMediaItemsCount(mediaItemsCount)
+                        .setCoverPhotoBaseUrl(coverPhotoBaseUrl)
+                        .setCoverPhotoMediaItemId(coverPhotoMediaItemId)
+                        .build();
+        mockPhotosLibrary.addResponse(expectedResponse);
+
+        String albumId = "albumId1532078315";
+
+        Album actualResponse = client.getAlbum(albumId);
+        Assert.assertEquals(expectedResponse, actualResponse);
+
+        List<GeneratedMessageV3> actualRequests = mockPhotosLibrary.getRequests();
+        Assert.assertEquals(1, actualRequests.size());
+        GetAlbumRequest actualRequest = (GetAlbumRequest) actualRequests.get(0);
+
+        Assert.assertEquals(albumId, actualRequest.getAlbumId());
+        Assert.assertTrue(
+                channelProvider.isHeaderSent(
+                        ApiClientHeaderProvider.getDefaultApiClientHeaderKey(),
+                        GaxGrpcProperties.getDefaultApiClientHeaderPattern()));
+    }
+
+    @Test
+    @SuppressWarnings("all")
+    public void getAlbumExceptionTest() throws Exception {
+        StatusRuntimeException exception = new StatusRuntimeException(Status.INVALID_ARGUMENT);
+        mockPhotosLibrary.addException(exception);
+
+        try {
+            String albumId = "albumId1532078315";
+
+            client.getAlbum(albumId);
+            Assert.fail("No exception raised");
+        } catch (InvalidArgumentException e) {
+            // Expected exception
+        }
+    }
+
+    @Test
+    @SuppressWarnings("all")
+    public void getSharedAlbumTest() {
+        String id = "id3355";
+        String title = "title110371416";
+        String productUrl = "productUrl-1491291617";
+        boolean isWriteable = true;
+        long mediaItemsCount = 927196149L;
+        String coverPhotoBaseUrl = "coverPhotoBaseUrl145443830";
+        String coverPhotoMediaItemId = "coverPhotoMediaItemId840621207";
+        Album expectedResponse =
+                Album.newBuilder()
+                        .setId(id)
+                        .setTitle(title)
+                        .setProductUrl(productUrl)
+                        .setIsWriteable(isWriteable)
+                        .setMediaItemsCount(mediaItemsCount)
+                        .setCoverPhotoBaseUrl(coverPhotoBaseUrl)
+                        .setCoverPhotoMediaItemId(coverPhotoMediaItemId)
+                        .build();
+        mockPhotosLibrary.addResponse(expectedResponse);
+
+        String shareToken = "shareToken407816601";
+
+        Album actualResponse = client.getSharedAlbum(shareToken);
+        Assert.assertEquals(expectedResponse, actualResponse);
+
+        List<GeneratedMessageV3> actualRequests = mockPhotosLibrary.getRequests();
+        Assert.assertEquals(1, actualRequests.size());
+        GetSharedAlbumRequest actualRequest = (GetSharedAlbumRequest) actualRequests.get(0);
+
+        Assert.assertEquals(shareToken, actualRequest.getShareToken());
+        Assert.assertTrue(
+                channelProvider.isHeaderSent(
+                        ApiClientHeaderProvider.getDefaultApiClientHeaderKey(),
+                        GaxGrpcProperties.getDefaultApiClientHeaderPattern()));
+    }
+
+    @Test
+    @SuppressWarnings("all")
+    public void getSharedAlbumExceptionTest() throws Exception {
+        StatusRuntimeException exception = new StatusRuntimeException(Status.INVALID_ARGUMENT);
+        mockPhotosLibrary.addException(exception);
+
+        try {
+            String shareToken = "shareToken407816601";
+
+            client.getSharedAlbum(shareToken);
+            Assert.fail("No exception raised");
+        } catch (InvalidArgumentException e) {
+            // Expected exception
+        }
+    }
+
+    @Test
+    @SuppressWarnings("all")
+    public void addEnrichmentToAlbumTest() {
+        AddEnrichmentToAlbumResponse expectedResponse =
+                AddEnrichmentToAlbumResponse.newBuilder().build();
+        mockPhotosLibrary.addResponse(expectedResponse);
+
+        String albumId = "albumId1532078315";
+        NewEnrichmentItem newEnrichmentItem = NewEnrichmentItem.newBuilder().build();
+        AlbumPosition albumPosition = AlbumPosition.newBuilder().build();
+
+        AddEnrichmentToAlbumResponse actualResponse =
+                client.addEnrichmentToAlbum(albumId, newEnrichmentItem, albumPosition);
+        Assert.assertEquals(expectedResponse, actualResponse);
+
+        List<GeneratedMessageV3> actualRequests = mockPhotosLibrary.getRequests();
+        Assert.assertEquals(1, actualRequests.size());
+        AddEnrichmentToAlbumRequest actualRequest = (AddEnrichmentToAlbumRequest) actualRequests.get(0);
+
+        Assert.assertEquals(albumId, actualRequest.getAlbumId());
+        Assert.assertEquals(newEnrichmentItem, actualRequest.getNewEnrichmentItem());
+        Assert.assertEquals(albumPosition, actualRequest.getAlbumPosition());
+        Assert.assertTrue(
+                channelProvider.isHeaderSent(
+                        ApiClientHeaderProvider.getDefaultApiClientHeaderKey(),
+                        GaxGrpcProperties.getDefaultApiClientHeaderPattern()));
+    }
+
+    @Test
+    @SuppressWarnings("all")
+    public void addEnrichmentToAlbumExceptionTest() throws Exception {
+        StatusRuntimeException exception = new StatusRuntimeException(Status.INVALID_ARGUMENT);
+        mockPhotosLibrary.addException(exception);
+
+        try {
+            String albumId = "albumId1532078315";
+            NewEnrichmentItem newEnrichmentItem = NewEnrichmentItem.newBuilder().build();
+            AlbumPosition albumPosition = AlbumPosition.newBuilder().build();
+
+            client.addEnrichmentToAlbum(albumId, newEnrichmentItem, albumPosition);
+            Assert.fail("No exception raised");
+        } catch (InvalidArgumentException e) {
+            // Expected exception
+        }
+    }
+
+    @Test
+    @SuppressWarnings("all")
+    public void joinSharedAlbumTest() {
+        JoinSharedAlbumResponse expectedResponse = JoinSharedAlbumResponse.newBuilder().build();
+        mockPhotosLibrary.addResponse(expectedResponse);
+
+        String shareToken = "shareToken407816601";
+
+        JoinSharedAlbumResponse actualResponse = client.joinSharedAlbum(shareToken);
+        Assert.assertEquals(expectedResponse, actualResponse);
+
+        List<GeneratedMessageV3> actualRequests = mockPhotosLibrary.getRequests();
+        Assert.assertEquals(1, actualRequests.size());
+        JoinSharedAlbumRequest actualRequest = (JoinSharedAlbumRequest) actualRequests.get(0);
+
+        Assert.assertEquals(shareToken, actualRequest.getShareToken());
+        Assert.assertTrue(
+                channelProvider.isHeaderSent(
+                        ApiClientHeaderProvider.getDefaultApiClientHeaderKey(),
+                        GaxGrpcProperties.getDefaultApiClientHeaderPattern()));
+    }
+
+    @Test
+    @SuppressWarnings("all")
+    public void joinSharedAlbumExceptionTest() throws Exception {
+        StatusRuntimeException exception = new StatusRuntimeException(Status.INVALID_ARGUMENT);
+        mockPhotosLibrary.addException(exception);
+
+        try {
+            String shareToken = "shareToken407816601";
+
+            client.joinSharedAlbum(shareToken);
+            Assert.fail("No exception raised");
+        } catch (InvalidArgumentException e) {
+            // Expected exception
+        }
+    }
+
+    @Test
+    @SuppressWarnings("all")
+    public void leaveSharedAlbumTest() {
+        LeaveSharedAlbumResponse expectedResponse = LeaveSharedAlbumResponse.newBuilder().build();
+        mockPhotosLibrary.addResponse(expectedResponse);
+
+        String shareToken = "shareToken407816601";
+
+        LeaveSharedAlbumResponse actualResponse = client.leaveSharedAlbum(shareToken);
+        Assert.assertEquals(expectedResponse, actualResponse);
+
+        List<GeneratedMessageV3> actualRequests = mockPhotosLibrary.getRequests();
+        Assert.assertEquals(1, actualRequests.size());
+        LeaveSharedAlbumRequest actualRequest = (LeaveSharedAlbumRequest) actualRequests.get(0);
+
+        Assert.assertEquals(shareToken, actualRequest.getShareToken());
+        Assert.assertTrue(
+                channelProvider.isHeaderSent(
+                        ApiClientHeaderProvider.getDefaultApiClientHeaderKey(),
+                        GaxGrpcProperties.getDefaultApiClientHeaderPattern()));
+    }
+
+    @Test
+    @SuppressWarnings("all")
+    public void leaveSharedAlbumExceptionTest() throws Exception {
+        StatusRuntimeException exception = new StatusRuntimeException(Status.INVALID_ARGUMENT);
+        mockPhotosLibrary.addException(exception);
+
+        try {
+            String shareToken = "shareToken407816601";
+
+            client.leaveSharedAlbum(shareToken);
+            Assert.fail("No exception raised");
+        } catch (InvalidArgumentException e) {
+            // Expected exception
+        }
+    }
+
+    @Test
+    @SuppressWarnings("all")
+    public void shareAlbumTest() {
+        ShareAlbumResponse expectedResponse = ShareAlbumResponse.newBuilder().build();
+        mockPhotosLibrary.addResponse(expectedResponse);
+
+        String albumId = "albumId1532078315";
+        SharedAlbumOptions sharedAlbumOptions = SharedAlbumOptions.newBuilder().build();
+
+        ShareAlbumResponse actualResponse = client.shareAlbum(albumId, sharedAlbumOptions);
+        Assert.assertEquals(expectedResponse, actualResponse);
+
+        List<GeneratedMessageV3> actualRequests = mockPhotosLibrary.getRequests();
+        Assert.assertEquals(1, actualRequests.size());
+        ShareAlbumRequest actualRequest = (ShareAlbumRequest) actualRequests.get(0);
+
+        Assert.assertEquals(albumId, actualRequest.getAlbumId());
+        Assert.assertEquals(sharedAlbumOptions, actualRequest.getSharedAlbumOptions());
+        Assert.assertTrue(
+                channelProvider.isHeaderSent(
+                        ApiClientHeaderProvider.getDefaultApiClientHeaderKey(),
+                        GaxGrpcProperties.getDefaultApiClientHeaderPattern()));
+    }
+
+    @Test
+    @SuppressWarnings("all")
+    public void shareAlbumExceptionTest() throws Exception {
+        StatusRuntimeException exception = new StatusRuntimeException(Status.INVALID_ARGUMENT);
+        mockPhotosLibrary.addException(exception);
+
+        try {
+            String albumId = "albumId1532078315";
+            SharedAlbumOptions sharedAlbumOptions = SharedAlbumOptions.newBuilder().build();
+
+            client.shareAlbum(albumId, sharedAlbumOptions);
+            Assert.fail("No exception raised");
+        } catch (InvalidArgumentException e) {
+            // Expected exception
+        }
+    }
+
+    @Test
+    @SuppressWarnings("all")
+    public void listSharedAlbumsTest() {
+        String nextPageToken = "";
+        Album sharedAlbumsElement = Album.newBuilder().build();
+        List<Album> sharedAlbums = Arrays.asList(sharedAlbumsElement);
+        ListSharedAlbumsResponse expectedResponse =
+                ListSharedAlbumsResponse.newBuilder()
+                        .setNextPageToken(nextPageToken)
+                        .addAllSharedAlbums(sharedAlbums)
+                        .build();
+        mockPhotosLibrary.addResponse(expectedResponse);
+
+        boolean excludeNonAppCreatedData = true;
+
+        ListSharedAlbumsPagedResponse pagedListResponse =
+                client.listSharedAlbums(excludeNonAppCreatedData);
+
+        List<Album> resources = Lists.newArrayList(pagedListResponse.iterateAll());
+        Assert.assertEquals(1, resources.size());
+        Assert.assertEquals(expectedResponse.getSharedAlbumsList().get(0), resources.get(0));
+
+        List<GeneratedMessageV3> actualRequests = mockPhotosLibrary.getRequests();
+        Assert.assertEquals(1, actualRequests.size());
+        ListSharedAlbumsRequest actualRequest = (ListSharedAlbumsRequest) actualRequests.get(0);
+
+        Assert.assertEquals(excludeNonAppCreatedData, actualRequest.getExcludeNonAppCreatedData());
+        Assert.assertTrue(
+                channelProvider.isHeaderSent(
+                        ApiClientHeaderProvider.getDefaultApiClientHeaderKey(),
+                        GaxGrpcProperties.getDefaultApiClientHeaderPattern()));
+    }
+
+    @Test
+    @SuppressWarnings("all")
+    public void listSharedAlbumsExceptionTest() throws Exception {
+        StatusRuntimeException exception = new StatusRuntimeException(Status.INVALID_ARGUMENT);
+        mockPhotosLibrary.addException(exception);
+
+        try {
+            boolean excludeNonAppCreatedData = true;
+
+            client.listSharedAlbums(excludeNonAppCreatedData);
+            Assert.fail("No exception raised");
+        } catch (InvalidArgumentException e) {
+            // Expected exception
+        }
+    }
+
+    @Test
+    @SuppressWarnings("all")
+    public void unshareAlbumTest() {
+        UnshareAlbumResponse expectedResponse = UnshareAlbumResponse.newBuilder().build();
+        mockPhotosLibrary.addResponse(expectedResponse);
+
+        String albumId = "albumId1532078315";
+
+        UnshareAlbumResponse actualResponse = client.unshareAlbum(albumId);
+        Assert.assertEquals(expectedResponse, actualResponse);
+
+        List<GeneratedMessageV3> actualRequests = mockPhotosLibrary.getRequests();
+        Assert.assertEquals(1, actualRequests.size());
+        UnshareAlbumRequest actualRequest = (UnshareAlbumRequest) actualRequests.get(0);
+
+        Assert.assertEquals(albumId, actualRequest.getAlbumId());
+        Assert.assertTrue(
+                channelProvider.isHeaderSent(
+                        ApiClientHeaderProvider.getDefaultApiClientHeaderKey(),
+                        GaxGrpcProperties.getDefaultApiClientHeaderPattern()));
+    }
+
+    @Test
+    @SuppressWarnings("all")
+    public void unshareAlbumExceptionTest() throws Exception {
+        StatusRuntimeException exception = new StatusRuntimeException(Status.INVALID_ARGUMENT);
+        mockPhotosLibrary.addException(exception);
+
+        try {
+            String albumId = "albumId1532078315";
+
+            client.unshareAlbum(albumId);
+            Assert.fail("No exception raised");
+        } catch (InvalidArgumentException e) {
+            // Expected exception
+        }
+    }
 }

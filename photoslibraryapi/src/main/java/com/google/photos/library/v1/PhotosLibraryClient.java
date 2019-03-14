@@ -33,9 +33,11 @@ import com.google.photos.library.v1.upload.PhotosLibraryUploadStub;
 import com.google.photos.library.v1.upload.PhotosLibraryUploadStubImpl;
 import com.google.photos.library.v1.upload.UploadMediaItemRequest;
 import com.google.photos.library.v1.upload.UploadMediaItemResponse;
-import io.grpc.Status.Code;
+
 import java.io.IOException;
 import java.util.List;
+
+import io.grpc.Status.Code;
 
 /**
  * An wrapper class of {@link InternalPhotosLibraryClient}.
@@ -44,12 +46,12 @@ import java.util.List;
  * on behalf of the user:
  *
  * <ul>
- *   <li>upload media items directly to their Google Photos library
- *   <li>create albums
- *   <li>add media items (including album enrichments) to albums
- *   <li>list and download content from their Google Photos library
- *   <li>filter results by media type, date range or content category
- *   <li>create, join, and access shared albums
+ * <li>upload media items directly to their Google Photos library
+ * <li>create albums
+ * <li>add media items (including album enrichments) to albums
+ * <li>list and download content from their Google Photos library
+ * <li>filter results by media type, date range or content category
+ * <li>create, join, and access shared albums
  * </ul>
  *
  * <p>This class provides the ability to make remote calls to the backing service through method
@@ -75,14 +77,14 @@ import java.util.List;
  * methods:
  *
  * <ol>
- *   <li>A "flattened" method. With this type of method, the fields of the request type have been
- *       converted into function parameters. It may be the case that not all fields are available as
- *       parameters, and not every API method will have a flattened method entry point.
- *   <li>A "request object" method. This type of method only takes one parameter, a request object,
- *       which must be constructed before the call. Not every API method will have a request object
- *       method.
- *   <li>A "callable" method. This type of method takes no parameters and returns an immutable API
- *       callable object, which can be used to initiate calls to the service.
+ * <li>A "flattened" method. With this type of method, the fields of the request type have been
+ * converted into function parameters. It may be the case that not all fields are available as
+ * parameters, and not every API method will have a flattened method entry point.
+ * <li>A "request object" method. This type of method only takes one parameter, a request object,
+ * which must be constructed before the call. Not every API method will have a request object
+ * method.
+ * <li>A "callable" method. This type of method takes no parameters and returns an immutable API
+ * callable object, which can be used to initiate calls to the service.
  * </ol>
  *
  * <p>Many parameters require resource names to be formatted in a particular way. To assist with
@@ -94,129 +96,135 @@ import java.util.List;
  */
 public final class PhotosLibraryClient extends InternalPhotosLibraryClient {
 
-  private final PhotosLibraryUploadStub uploadStub;
-  private final PhotosLibrarySettings settings;
+    private final PhotosLibraryUploadStub uploadStub;
+    private final PhotosLibrarySettings settings;
 
-  protected PhotosLibraryClient(PhotosLibrarySettings settings) throws IOException {
-    super(settings);
-    this.settings = settings;
-    this.uploadStub = PhotosLibraryUploadStubImpl.createStub(settings);
-  }
-
-  protected PhotosLibraryClient(PhotosLibraryStub stub, PhotosLibraryUploadStub uploadStub) {
-    super(stub);
-    this.settings = null;
-    this.uploadStub = uploadStub;
-  }
-
-  /** Creates an {@link PhotosLibraryClient} instance with {@link PhotosLibrarySettings}. */
-  public static PhotosLibraryClient initialize(PhotosLibrarySettings settings) throws IOException {
-    return new PhotosLibraryClient(settings);
-  }
-
-  /** Returns a callable to upload a file to Google Photos. */
-  public final UnaryCallable<UploadMediaItemRequest, UploadMediaItemResponse>
-      uploadMediaItemCallable() {
-    return uploadStub.uploadMediaItemCallable();
-  }
-
-  /** Uploads a file to Google Photos. */
-  public final UploadMediaItemResponse uploadMediaItem(UploadMediaItemRequest request) {
-    return uploadStub.uploadMediaItemCallable().call(request);
-  }
-
-  /* batchCreateMediaItems convenience methods */
-
-  /**
-   * Creates one or more media items in a user's Google Photos library.
-   *
-   * <p>The items are only added to the library and <b>not</b> to an album.
-   *
-   * @param newMediaItems List of media items to be created.
-   * @see #batchCreateMediaItems(String, List, AlbumPosition)
-   */
-  public final BatchCreateMediaItemsResponse batchCreateMediaItems(
-      List<NewMediaItem> newMediaItems) {
-    if (newMediaItems == null) {
-      throw new InvalidArgumentException(
-          "Request must have a list of new media items.",
-          null /* cause */,
-          GrpcStatusCode.of(Code.INVALID_ARGUMENT),
-          false /* retryable */);
+    protected PhotosLibraryClient(PhotosLibrarySettings settings) throws IOException {
+        super(settings);
+        this.settings = settings;
+        this.uploadStub = PhotosLibraryUploadStubImpl.createStub(settings);
     }
 
-    BatchCreateMediaItemsRequest request =
-        BatchCreateMediaItemsRequest.newBuilder().addAllNewMediaItems(newMediaItems).build();
-    return batchCreateMediaItems(request);
-  }
-
-  /**
-   * Creates one or more media items in a user's Google Photos library and adds them to an album.
-   *
-   * @param albumId Identifier of the album where the media items are added. The media items are
-   *     also added to the user's library.
-   * @param newMediaItems List of media items to be created.
-   * @see #batchCreateMediaItems(String, List, AlbumPosition)
-   */
-  public final BatchCreateMediaItemsResponse batchCreateMediaItems(
-      String albumId, List<NewMediaItem> newMediaItems) {
-    if (Strings.isNullOrEmpty(albumId)) {
-      throw new InvalidArgumentException(
-          "Request must have an album id.",
-          null /* cause */,
-          GrpcStatusCode.of(Code.INVALID_ARGUMENT),
-          false /* retryable */);
+    protected PhotosLibraryClient(PhotosLibraryStub stub, PhotosLibraryUploadStub uploadStub) {
+        super(stub);
+        this.settings = null;
+        this.uploadStub = uploadStub;
     }
 
-    BatchCreateMediaItemsRequest request =
-        BatchCreateMediaItemsRequest.newBuilder()
-            .setAlbumId(albumId)
-            .addAllNewMediaItems(newMediaItems)
-            .build();
-    return batchCreateMediaItems(request);
-  }
-
-  /**
-   * Creates an album in a user's Google Photos library.
-   *
-   * @param albumTitle Name of the album displayed to the user in their Google Photos account. This
-   *     string shouldn't be more than 500 characters.
-   * @throws com.google.api.gax.rpc.ApiException if the remote call fails
-   * @throws IllegalArgumentException if albumTitle is null or empty.
-   */
-  public final Album createAlbum(String albumTitle) {
-    if (albumTitle == null || albumTitle.isEmpty()) {
-      throw new IllegalArgumentException("The album title cannot be null or empty.");
+    /**
+     * Creates an {@link PhotosLibraryClient} instance with {@link PhotosLibrarySettings}.
+     */
+    public static PhotosLibraryClient initialize(PhotosLibrarySettings settings) throws IOException {
+        return new PhotosLibraryClient(settings);
     }
 
-    return super.createAlbum(Album.newBuilder().setTitle(albumTitle).build());
-  }
+    /**
+     * Returns a callable to upload a file to Google Photos.
+     */
+    public final UnaryCallable<UploadMediaItemRequest, UploadMediaItemResponse>
+    uploadMediaItemCallable() {
+        return uploadStub.uploadMediaItemCallable();
+    }
 
-  /**
-   * Lists all albums shown to a user in the Albums tab of the Google Photos app.
-   *
-   * <p>Calls {@link #listAlbums(boolean)} with excludeNonAppCreateData set to false.
-   */
-  public final ListAlbumsPagedResponse listAlbums() {
-    return super.listAlbums(false);
-  }
+    /**
+     * Uploads a file to Google Photos.
+     */
+    public final UploadMediaItemResponse uploadMediaItem(UploadMediaItemRequest request) {
+        return uploadStub.uploadMediaItemCallable().call(request);
+    }
 
-  /**
-   * List all media items in a user's Google Photos library.
-   *
-   * <p>Calls {@link #listMediaItems(ListMediaItemsRequest)} with an empty {@link
-   * ListMediaItemsRequest}.
-   */
-  public final ListMediaItemsPagedResponse listMediaItems() {
-    return super.listMediaItems(ListMediaItemsRequest.newBuilder().build());
-  }
+    /* batchCreateMediaItems convenience methods */
 
-  /**
-   * Lists all shared albums available in the Sharing tab of the user's Google Photos app.
-   *
-   * <p>Calls {@link #listSharedAlbums(boolean)} with excludeNonAppCreateData set to false.
-   */
-  public final ListSharedAlbumsPagedResponse listSharedAlbums() {
-    return super.listSharedAlbums(false);
-  }
+    /**
+     * Creates one or more media items in a user's Google Photos library.
+     *
+     * <p>The items are only added to the library and <b>not</b> to an album.
+     *
+     * @param newMediaItems List of media items to be created.
+     * @see #batchCreateMediaItems(String, List, AlbumPosition)
+     */
+    public final BatchCreateMediaItemsResponse batchCreateMediaItems(
+            List<NewMediaItem> newMediaItems) {
+        if (newMediaItems == null) {
+            throw new InvalidArgumentException(
+                    "Request must have a list of new media items.",
+                    null /* cause */,
+                    GrpcStatusCode.of(Code.INVALID_ARGUMENT),
+                    false /* retryable */);
+        }
+
+        BatchCreateMediaItemsRequest request =
+                BatchCreateMediaItemsRequest.newBuilder().addAllNewMediaItems(newMediaItems).build();
+        return batchCreateMediaItems(request);
+    }
+
+    /**
+     * Creates one or more media items in a user's Google Photos library and adds them to an album.
+     *
+     * @param albumId       Identifier of the album where the media items are added. The media items are
+     *                      also added to the user's library.
+     * @param newMediaItems List of media items to be created.
+     * @see #batchCreateMediaItems(String, List, AlbumPosition)
+     */
+    public final BatchCreateMediaItemsResponse batchCreateMediaItems(
+            String albumId, List<NewMediaItem> newMediaItems) {
+        if (Strings.isNullOrEmpty(albumId)) {
+            throw new InvalidArgumentException(
+                    "Request must have an album id.",
+                    null /* cause */,
+                    GrpcStatusCode.of(Code.INVALID_ARGUMENT),
+                    false /* retryable */);
+        }
+
+        BatchCreateMediaItemsRequest request =
+                BatchCreateMediaItemsRequest.newBuilder()
+                        .setAlbumId(albumId)
+                        .addAllNewMediaItems(newMediaItems)
+                        .build();
+        return batchCreateMediaItems(request);
+    }
+
+    /**
+     * Creates an album in a user's Google Photos library.
+     *
+     * @param albumTitle Name of the album displayed to the user in their Google Photos account. This
+     *                   string shouldn't be more than 500 characters.
+     * @throws com.google.api.gax.rpc.ApiException if the remote call fails
+     * @throws IllegalArgumentException            if albumTitle is null or empty.
+     */
+    public final Album createAlbum(String albumTitle) {
+        if (albumTitle == null || albumTitle.isEmpty()) {
+            throw new IllegalArgumentException("The album title cannot be null or empty.");
+        }
+
+        return super.createAlbum(Album.newBuilder().setTitle(albumTitle).build());
+    }
+
+    /**
+     * Lists all albums shown to a user in the Albums tab of the Google Photos app.
+     *
+     * <p>Calls {@link #listAlbums(boolean)} with excludeNonAppCreateData set to false.
+     */
+    public final ListAlbumsPagedResponse listAlbums() {
+        return super.listAlbums(false);
+    }
+
+    /**
+     * List all media items in a user's Google Photos library.
+     *
+     * <p>Calls {@link #listMediaItems(ListMediaItemsRequest)} with an empty {@link
+     * ListMediaItemsRequest}.
+     */
+    public final ListMediaItemsPagedResponse listMediaItems() {
+        return super.listMediaItems(ListMediaItemsRequest.newBuilder().build());
+    }
+
+    /**
+     * Lists all shared albums available in the Sharing tab of the user's Google Photos app.
+     *
+     * <p>Calls {@link #listSharedAlbums(boolean)} with excludeNonAppCreateData set to false.
+     */
+    public final ListSharedAlbumsPagedResponse listSharedAlbums() {
+        return super.listSharedAlbums(false);
+    }
 }

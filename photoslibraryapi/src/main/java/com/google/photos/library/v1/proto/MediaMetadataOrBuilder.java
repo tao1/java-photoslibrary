@@ -4,127 +4,111 @@
 package com.google.photos.library.v1.proto;
 
 public interface MediaMetadataOrBuilder
-    extends
-    // @@protoc_insertion_point(interface_extends:google.photos.library.v1.MediaMetadata)
-    com.google.protobuf.MessageOrBuilder {
+        extends
+        // @@protoc_insertion_point(interface_extends:google.photos.library.v1.MediaMetadata)
+        com.google.protobuf.MessageOrBuilder {
 
-  /**
-   *
-   *
-   * <pre>
-   * Time when the media item was first created (not when it was uploaded to
-   * Google Photos).
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp creation_time = 1;</code>
-   */
-  boolean hasCreationTime();
-  /**
-   *
-   *
-   * <pre>
-   * Time when the media item was first created (not when it was uploaded to
-   * Google Photos).
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp creation_time = 1;</code>
-   */
-  com.google.protobuf.Timestamp getCreationTime();
-  /**
-   *
-   *
-   * <pre>
-   * Time when the media item was first created (not when it was uploaded to
-   * Google Photos).
-   * </pre>
-   *
-   * <code>.google.protobuf.Timestamp creation_time = 1;</code>
-   */
-  com.google.protobuf.TimestampOrBuilder getCreationTimeOrBuilder();
+    /**
+     * <pre>
+     * Time when the media item was first created (not when it was uploaded to
+     * Google Photos).
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp creation_time = 1;</code>
+     */
+    boolean hasCreationTime();
 
-  /**
-   *
-   *
-   * <pre>
-   * Original width (in pixels) of the media item.
-   * </pre>
-   *
-   * <code>int64 width = 2;</code>
-   */
-  long getWidth();
+    /**
+     * <pre>
+     * Time when the media item was first created (not when it was uploaded to
+     * Google Photos).
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp creation_time = 1;</code>
+     */
+    com.google.protobuf.Timestamp getCreationTime();
 
-  /**
-   *
-   *
-   * <pre>
-   * Original height (in pixels) of the media item.
-   * </pre>
-   *
-   * <code>int64 height = 3;</code>
-   */
-  long getHeight();
+    /**
+     * <pre>
+     * Time when the media item was first created (not when it was uploaded to
+     * Google Photos).
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp creation_time = 1;</code>
+     */
+    com.google.protobuf.TimestampOrBuilder getCreationTimeOrBuilder();
 
-  /**
-   *
-   *
-   * <pre>
-   * Metadata for a photo media type.
-   * </pre>
-   *
-   * <code>.google.photos.library.v1.Photo photo = 6;</code>
-   */
-  boolean hasPhoto();
-  /**
-   *
-   *
-   * <pre>
-   * Metadata for a photo media type.
-   * </pre>
-   *
-   * <code>.google.photos.library.v1.Photo photo = 6;</code>
-   */
-  com.google.photos.library.v1.proto.Photo getPhoto();
-  /**
-   *
-   *
-   * <pre>
-   * Metadata for a photo media type.
-   * </pre>
-   *
-   * <code>.google.photos.library.v1.Photo photo = 6;</code>
-   */
-  com.google.photos.library.v1.proto.PhotoOrBuilder getPhotoOrBuilder();
+    /**
+     * <pre>
+     * Original width (in pixels) of the media item.
+     * </pre>
+     *
+     * <code>int64 width = 2;</code>
+     */
+    long getWidth();
 
-  /**
-   *
-   *
-   * <pre>
-   * Metadata for a video media type.
-   * </pre>
-   *
-   * <code>.google.photos.library.v1.Video video = 7;</code>
-   */
-  boolean hasVideo();
-  /**
-   *
-   *
-   * <pre>
-   * Metadata for a video media type.
-   * </pre>
-   *
-   * <code>.google.photos.library.v1.Video video = 7;</code>
-   */
-  com.google.photos.library.v1.proto.Video getVideo();
-  /**
-   *
-   *
-   * <pre>
-   * Metadata for a video media type.
-   * </pre>
-   *
-   * <code>.google.photos.library.v1.Video video = 7;</code>
-   */
-  com.google.photos.library.v1.proto.VideoOrBuilder getVideoOrBuilder();
+    /**
+     * <pre>
+     * Original height (in pixels) of the media item.
+     * </pre>
+     *
+     * <code>int64 height = 3;</code>
+     */
+    long getHeight();
 
-  public com.google.photos.library.v1.proto.MediaMetadata.MetadataCase getMetadataCase();
+    /**
+     * <pre>
+     * Metadata for a photo media type.
+     * </pre>
+     *
+     * <code>.google.photos.library.v1.Photo photo = 6;</code>
+     */
+    boolean hasPhoto();
+
+    /**
+     * <pre>
+     * Metadata for a photo media type.
+     * </pre>
+     *
+     * <code>.google.photos.library.v1.Photo photo = 6;</code>
+     */
+    com.google.photos.library.v1.proto.Photo getPhoto();
+
+    /**
+     * <pre>
+     * Metadata for a photo media type.
+     * </pre>
+     *
+     * <code>.google.photos.library.v1.Photo photo = 6;</code>
+     */
+    com.google.photos.library.v1.proto.PhotoOrBuilder getPhotoOrBuilder();
+
+    /**
+     * <pre>
+     * Metadata for a video media type.
+     * </pre>
+     *
+     * <code>.google.photos.library.v1.Video video = 7;</code>
+     */
+    boolean hasVideo();
+
+    /**
+     * <pre>
+     * Metadata for a video media type.
+     * </pre>
+     *
+     * <code>.google.photos.library.v1.Video video = 7;</code>
+     */
+    com.google.photos.library.v1.proto.Video getVideo();
+
+    /**
+     * <pre>
+     * Metadata for a video media type.
+     * </pre>
+     *
+     * <code>.google.photos.library.v1.Video video = 7;</code>
+     */
+    com.google.photos.library.v1.proto.VideoOrBuilder getVideoOrBuilder();
+
+    public com.google.photos.library.v1.proto.MediaMetadata.MetadataCase getMetadataCase();
 }

@@ -18,40 +18,42 @@ package com.google.photos.library.v1.internal;
 import com.google.api.core.BetaApi;
 import com.google.api.gax.grpc.testing.MockGrpcService;
 import com.google.protobuf.GeneratedMessageV3;
-import io.grpc.ServerServiceDefinition;
+
 import java.util.List;
+
+import io.grpc.ServerServiceDefinition;
 
 @javax.annotation.Generated("by GAPIC")
 @BetaApi
 public class MockPhotosLibrary implements MockGrpcService {
-  private final MockPhotosLibraryImpl serviceImpl;
+    private final MockPhotosLibraryImpl serviceImpl;
 
-  public MockPhotosLibrary() {
-    serviceImpl = new MockPhotosLibraryImpl();
-  }
+    public MockPhotosLibrary() {
+        serviceImpl = new MockPhotosLibraryImpl();
+    }
 
-  @Override
-  public List<GeneratedMessageV3> getRequests() {
-    return serviceImpl.getRequests();
-  }
+    @Override
+    public List<GeneratedMessageV3> getRequests() {
+        return serviceImpl.getRequests();
+    }
 
-  @Override
-  public void addResponse(GeneratedMessageV3 response) {
-    serviceImpl.addResponse(response);
-  }
+    @Override
+    public void addResponse(GeneratedMessageV3 response) {
+        serviceImpl.addResponse(response);
+    }
 
-  @Override
-  public void addException(Exception exception) {
-    serviceImpl.addException(exception);
-  }
+    @Override
+    public void addException(Exception exception) {
+        serviceImpl.addException(exception);
+    }
 
-  @Override
-  public ServerServiceDefinition getServiceDefinition() {
-    return serviceImpl.bindService();
-  }
+    @Override
+    public ServerServiceDefinition getServiceDefinition() {
+        return serviceImpl.bindService();
+    }
 
-  @Override
-  public void reset() {
-    serviceImpl.reset();
-  }
+    @Override
+    public void reset() {
+        serviceImpl.reset();
+    }
 }

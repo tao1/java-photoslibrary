@@ -4,28 +4,25 @@
 package com.google.photos.library.v1.proto;
 
 public interface GetMediaItemRequestOrBuilder
-    extends
-    // @@protoc_insertion_point(interface_extends:google.photos.library.v1.GetMediaItemRequest)
-    com.google.protobuf.MessageOrBuilder {
+        extends
+        // @@protoc_insertion_point(interface_extends:google.photos.library.v1.GetMediaItemRequest)
+        com.google.protobuf.MessageOrBuilder {
 
-  /**
-   *
-   *
-   * <pre>
-   * Identifier of the media item to be requested.
-   * </pre>
-   *
-   * <code>string media_item_id = 1;</code>
-   */
-  java.lang.String getMediaItemId();
-  /**
-   *
-   *
-   * <pre>
-   * Identifier of the media item to be requested.
-   * </pre>
-   *
-   * <code>string media_item_id = 1;</code>
-   */
-  com.google.protobuf.ByteString getMediaItemIdBytes();
+    /**
+     * <pre>
+     * Identifier of the media item to be requested.
+     * </pre>
+     *
+     * <code>string media_item_id = 1;</code>
+     */
+    java.lang.String getMediaItemId();
+
+    /**
+     * <pre>
+     * Identifier of the media item to be requested.
+     * </pre>
+     *
+     * <code>string media_item_id = 1;</code>
+     */
+    com.google.protobuf.ByteString getMediaItemIdBytes();
 }

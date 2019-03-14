@@ -4,61 +4,54 @@
 package com.google.photos.library.v1.proto;
 
 public interface ShareAlbumRequestOrBuilder
-    extends
-    // @@protoc_insertion_point(interface_extends:google.photos.library.v1.ShareAlbumRequest)
-    com.google.protobuf.MessageOrBuilder {
+        extends
+        // @@protoc_insertion_point(interface_extends:google.photos.library.v1.ShareAlbumRequest)
+        com.google.protobuf.MessageOrBuilder {
 
-  /**
-   *
-   *
-   * <pre>
-   * Identifier of the album to be shared. This `albumId` must belong to an
-   * album created by the developer.
-   * </pre>
-   *
-   * <code>string album_id = 1;</code>
-   */
-  java.lang.String getAlbumId();
-  /**
-   *
-   *
-   * <pre>
-   * Identifier of the album to be shared. This `albumId` must belong to an
-   * album created by the developer.
-   * </pre>
-   *
-   * <code>string album_id = 1;</code>
-   */
-  com.google.protobuf.ByteString getAlbumIdBytes();
+    /**
+     * <pre>
+     * Identifier of the album to be shared. This `albumId` must belong to an
+     * album created by the developer.
+     * </pre>
+     *
+     * <code>string album_id = 1;</code>
+     */
+    java.lang.String getAlbumId();
 
-  /**
-   *
-   *
-   * <pre>
-   * Options to be set when converting the album to a shared album.
-   * </pre>
-   *
-   * <code>.google.photos.library.v1.SharedAlbumOptions shared_album_options = 2;</code>
-   */
-  boolean hasSharedAlbumOptions();
-  /**
-   *
-   *
-   * <pre>
-   * Options to be set when converting the album to a shared album.
-   * </pre>
-   *
-   * <code>.google.photos.library.v1.SharedAlbumOptions shared_album_options = 2;</code>
-   */
-  com.google.photos.library.v1.proto.SharedAlbumOptions getSharedAlbumOptions();
-  /**
-   *
-   *
-   * <pre>
-   * Options to be set when converting the album to a shared album.
-   * </pre>
-   *
-   * <code>.google.photos.library.v1.SharedAlbumOptions shared_album_options = 2;</code>
-   */
-  com.google.photos.library.v1.proto.SharedAlbumOptionsOrBuilder getSharedAlbumOptionsOrBuilder();
+    /**
+     * <pre>
+     * Identifier of the album to be shared. This `albumId` must belong to an
+     * album created by the developer.
+     * </pre>
+     *
+     * <code>string album_id = 1;</code>
+     */
+    com.google.protobuf.ByteString getAlbumIdBytes();
+
+    /**
+     * <pre>
+     * Options to be set when converting the album to a shared album.
+     * </pre>
+     *
+     * <code>.google.photos.library.v1.SharedAlbumOptions shared_album_options = 2;</code>
+     */
+    boolean hasSharedAlbumOptions();
+
+    /**
+     * <pre>
+     * Options to be set when converting the album to a shared album.
+     * </pre>
+     *
+     * <code>.google.photos.library.v1.SharedAlbumOptions shared_album_options = 2;</code>
+     */
+    com.google.photos.library.v1.proto.SharedAlbumOptions getSharedAlbumOptions();
+
+    /**
+     * <pre>
+     * Options to be set when converting the album to a shared album.
+     * </pre>
+     *
+     * <code>.google.photos.library.v1.SharedAlbumOptions shared_album_options = 2;</code>
+     */
+    com.google.photos.library.v1.proto.SharedAlbumOptionsOrBuilder getSharedAlbumOptionsOrBuilder();
 }

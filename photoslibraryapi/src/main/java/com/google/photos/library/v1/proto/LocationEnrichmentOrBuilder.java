@@ -4,38 +4,34 @@
 package com.google.photos.library.v1.proto;
 
 public interface LocationEnrichmentOrBuilder
-    extends
-    // @@protoc_insertion_point(interface_extends:google.photos.library.v1.LocationEnrichment)
-    com.google.protobuf.MessageOrBuilder {
+        extends
+        // @@protoc_insertion_point(interface_extends:google.photos.library.v1.LocationEnrichment)
+        com.google.protobuf.MessageOrBuilder {
 
-  /**
-   *
-   *
-   * <pre>
-   * Location for this enrichment item.
-   * </pre>
-   *
-   * <code>.google.photos.library.v1.Location location = 1;</code>
-   */
-  boolean hasLocation();
-  /**
-   *
-   *
-   * <pre>
-   * Location for this enrichment item.
-   * </pre>
-   *
-   * <code>.google.photos.library.v1.Location location = 1;</code>
-   */
-  com.google.photos.library.v1.proto.Location getLocation();
-  /**
-   *
-   *
-   * <pre>
-   * Location for this enrichment item.
-   * </pre>
-   *
-   * <code>.google.photos.library.v1.Location location = 1;</code>
-   */
-  com.google.photos.library.v1.proto.LocationOrBuilder getLocationOrBuilder();
+    /**
+     * <pre>
+     * Location for this enrichment item.
+     * </pre>
+     *
+     * <code>.google.photos.library.v1.Location location = 1;</code>
+     */
+    boolean hasLocation();
+
+    /**
+     * <pre>
+     * Location for this enrichment item.
+     * </pre>
+     *
+     * <code>.google.photos.library.v1.Location location = 1;</code>
+     */
+    com.google.photos.library.v1.proto.Location getLocation();
+
+    /**
+     * <pre>
+     * Location for this enrichment item.
+     * </pre>
+     *
+     * <code>.google.photos.library.v1.Location location = 1;</code>
+     */
+    com.google.photos.library.v1.proto.LocationOrBuilder getLocationOrBuilder();
 }

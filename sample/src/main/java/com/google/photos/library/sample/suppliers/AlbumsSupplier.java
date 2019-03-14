@@ -17,9 +17,10 @@
 package com.google.photos.library.sample.suppliers;
 
 import com.google.photos.library.v1.proto.Album;
+
 import java.util.List;
 import java.util.function.Supplier;
 
 public interface AlbumsSupplier extends Supplier<List<Album>> {
-  void refresh();
+    void refresh();
 }
