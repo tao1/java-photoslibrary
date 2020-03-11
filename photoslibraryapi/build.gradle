@@ -16,11 +16,11 @@
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 29
 
     defaultConfig {
         minSdkVersion 21
-        targetSdkVersion 28
+        targetSdkVersion 29
         versionCode 1
         versionName "1.1.0"
     }
@@ -31,10 +31,10 @@ android {
 }
 
 dependencies {
-    implementation('com.google.cloud:google-cloud-core:1.93.0') {
+    implementation('com.google.cloud:google-cloud-core:1.93.1') {
         exclude group: 'org.apache.httpcomponents', module: 'httpclient'
     }
-    implementation('com.google.cloud:google-cloud-core-grpc:1.93.0') {
+    implementation('com.google.cloud:google-cloud-core-grpc:1.93.1') {
         exclude group: 'io.grpc', module: 'grpc-netty-shaded'
         exclude group: 'io.grpc', module: 'grpc-alts'
     }
