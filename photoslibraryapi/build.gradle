@@ -31,12 +31,12 @@ android {
 }
 
 dependencies {
-    implementation('com.google.cloud:google-cloud-core:1.93.6') {
+    implementation('com.google.cloud:google-cloud-core:1.93.8') {
         exclude group: 'org.apache.httpcomponents', module: 'httpclient'
     }
-    implementation('com.google.cloud:google-cloud-core-grpc:1.93.6') {
+    implementation('com.google.cloud:google-cloud-core-grpc:1.93.8') {
         exclude group: 'io.grpc', module: 'grpc-netty-shaded'
         exclude group: 'io.grpc', module: 'grpc-alts'
     }
-    implementation 'io.grpc:grpc-okhttp:1.30.2'
+    implementation 'io.grpc:grpc-okhttp:1.31.1'
 }
